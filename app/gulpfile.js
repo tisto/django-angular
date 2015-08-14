@@ -18,8 +18,12 @@
       './node_modules/angular-loading-bar/build/loading-bar.js',
       './node_modules/underscore/underscore.js',
       './node_modules/restangular/dist/restangular.js',
+      './node_modules/api-check/dist/api-check.js',
+      './node_modules/angular-formly/dist/formly.js',
+      './node_modules/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.js',
       './js/**/*.js',
       './node_modules/angular-loading-bar/build/loading-bar.css',
+      './node_modules/bootstrap/dist/css/bootstrap.css',
       './css/**/*.css'
     ], {read: false});  // Do not read the files, we're only after their paths.
 

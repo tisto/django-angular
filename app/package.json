@@ -10,9 +10,13 @@
   "license": "ISC",
   "dependencies": {
     "angular": "^1.4.4",
+    "angular-formly": "^6.23.2",
+    "angular-formly-templates-bootstrap": "^6.0.0",
     "angular-loading-bar": "^0.8.0",
     "angular-mocks": "^1.4.4",
     "angularjs": "0.0.1",
+    "api-check": "^7.5.0",
+    "bootstrap": "^3.3.5",
     "browser-sync": "^2.8.2",
     "dragula": "^3.0.3",
     "gulp": "^3.9.0",
