@@ -1,4 +1,4 @@
-.env
-.pyc
-.sqlite3
+*.env
+*.pyc
+*.sqlite3
 
