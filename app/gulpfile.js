@@ -14,7 +14,10 @@
     var target = gulp.src('./index.html');
     var sources = gulp.src([
       './node_modules/angular/angular.js',
+      './node_modules/angular-mocks/angular-mocks.js',
       './node_modules/angular-loading-bar/build/loading-bar.js',
+      './node_modules/underscore/underscore.js',
+      './node_modules/restangular/dist/restangular.js',
       './js/**/*.js',
       './node_modules/angular-loading-bar/build/loading-bar.css',
       './css/**/*.css'

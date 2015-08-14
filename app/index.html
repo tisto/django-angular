@@ -8,11 +8,30 @@
   <!-- endinject -->
   <!-- inject:js -->
   <script src="/node_modules/angular/angular.js"></script>
+  <script src="/node_modules/angular-mocks/angular-mocks.js"></script>
   <script src="/node_modules/angular-loading-bar/build/loading-bar.js"></script>
+  <script src="/node_modules/underscore/underscore.js"></script>
+  <script src="/node_modules/restangular/dist/restangular.js"></script>
   <script src="/js/app.js"></script>
+  <script src="/js/app.mocks.js"></script>
   <!-- endinject -->
 </head>
-<body ng-controller="TextController">
-  <p>{{someText.message}}</p>
+<body>
+  <div ng-controller="TextController">
+    <p>{{someText.message}}</p>
+  </div>
+
+  <div ng-controller="JobsController">
+    <input ng-model="jobTitle" />
+    <button ng-click="createJob(jobTitle)">Add Job</button>
+    <h3>Jobs</h3>
+    <ul ng-repeat="job in jobs">
+      <li>
+        {{job.title}} ({{job.id}})
+        <button ng-click="deleteJob(job)">x</button>
+      </li>
+    </ul>
+  </div>
+
 </body>
 </html>
