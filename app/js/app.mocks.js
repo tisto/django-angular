@@ -5,7 +5,21 @@
 
     // --- REST JOB SERVICE --------------------------------------------------
 
-    var jobs = [
+    var users = {
+        "count": 1,
+        "next": null,
+        "previous": null,
+        "results": [
+            {
+                "url": "http://127.0.0.1:8000/users/1/",
+                "username": "admin",
+                "email": "",
+                "groups": []
+            }
+        ]
+    };
+
+    var users = [
       {
         id: 0,
         title: 'First Job',
@@ -20,12 +34,12 @@
       },
     ];
 
-    function jobsIndexById(id) {
+    function usersIndexById(id) {
       if (!id) return null;
       var index = -1;
 
-      for(var i = 0; i < jobs.length; i++) {
-        var o = jobs[i];
+      for(var i = 0; i < users.length; i++) {
+        var o = users[i];
         if (id == o.id) {
           index = i;
           break;
@@ -36,25 +50,25 @@
     }
 
     // LIST JOBS
-    $httpBackend.when('GET', '/jobs').respond(
+    $httpBackend.when('GET', '/users').respond(
       function(method, url, data, headers) {
-        console.log('[MOCK] GET /jobs');
-        return [200, jobs];
+        console.log('[MOCK] GET /users');
+        return [200, users];
       }
     );
 
     // CREATE JOB
-    $httpBackend.when('POST', '/jobs').respond(
+    $httpBackend.when('POST', '/users').respond(
       function(method, url, data, headers) {
-        console.log('[MOCK] POST /jobs ' + data);
-        jobs.push(angular.fromJson(data));
+        console.log('[MOCK] POST /users ' + data);
+        users.push(angular.fromJson(data));
         return [201];
       }
     )
 
     // READ JOB
     /*
-    $httpBackend.when('GET', '/api/jobs/1').respond(
+    $httpBackend.when('GET', '/api/users/1').respond(
       function(method, url, data, headers) {
         return [200, job[0]];
       }
@@ -62,20 +76,20 @@
 
     // UPDATE JOB
     /*
-    $httpBackend.when('PUT', '/api/jobs/1').respond(
+    $httpBackend.when('PUT', '/api/users/1').respond(
       return [200, {status: 'OK'}];
     )
     */
 
     // DELETE JOB
-    var jobsRegExp = new RegExp(/\/jobs\/(\d*)*/);
-    $httpBackend.when('DELETE', jobsRegExp).respond(
+    var usersRegExp = new RegExp(/\/users\/(\d*)*/);
+    $httpBackend.when('DELETE', usersRegExp).respond(
       function(method, url, data, headers) {
-        var match = jobsRegExp.exec(url);
+        var match = usersRegExp.exec(url);
         var jobId = parseInt(match[1]);
-        var index = jobsIndexById(jobId);
-        console.log('[MOCK] DELETE /jobs/' + jobId);
-        jobs.splice(index, 1);
+        var index = usersIndexById(jobId);
+        console.log('[MOCK] DELETE /users/' + jobId);
+        users.splice(index, 1);
         return [204, {status: 'No content'}];
       }
     )
