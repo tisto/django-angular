@@ -22,12 +22,12 @@
   </div>
 
   <div ng-controller="UsersController">
-    <input ng-model="userTitle" />
-    <button ng-click="createUser(userTitle)">Add User</button>
+    <input ng-model="username" />
+    <button ng-click="createUser(username)">Add User</button>
     <h3>Users</h3>
     <ul ng-repeat="user in users">
       <li>
-        {{user.title}} ({{user.id}})
+        {{user.username}} ({{user.id}})
         <button ng-click="deleteUser(user)">x</button>
       </li>
     </ul>

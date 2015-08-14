@@ -22,15 +22,15 @@
     var users = [
       {
         id: 0,
-        title: 'First Job',
+        username: 'First Job',
       },
       {
         id: 1,
-        title: 'Second Job',
+        username: 'Second Job',
       },
       {
         id: 2,
-        title: 'Third Job',
+        username: 'Third Job',
       },
     ];
 

@@ -32,7 +32,7 @@
       $scope.createUser = function(userTitle) {
         baseUsers.post({
           'id': generatedUniqueId(),
-          'title': userTitle
+          'username': userTitle
         });
         $scope.userTitle = '';
         $scope.listUsers();
