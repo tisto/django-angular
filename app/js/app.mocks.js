@@ -11,6 +11,7 @@
         "previous": null,
         "results": [
             {
+                "id": "0",
                 "url": "http://127.0.0.1:8000/users/1/",
                 "username": "admin",
                 "email": "",
@@ -19,27 +20,12 @@
         ]
     };
 
-    var users = [
-      {
-        id: 0,
-        username: 'First Job',
-      },
-      {
-        id: 1,
-        username: 'Second Job',
-      },
-      {
-        id: 2,
-        username: 'Third Job',
-      },
-    ];
-
     function usersIndexById(id) {
       if (!id) return null;
       var index = -1;
 
-      for(var i = 0; i < users.length; i++) {
-        var o = users[i];
+      for(var i = 0; i < users.results.length; i++) {
+        var o = users.results[i];
         if (id == o.id) {
           index = i;
           break;
@@ -53,7 +39,7 @@
     $httpBackend.when('GET', '/users').respond(
       function(method, url, data, headers) {
         console.log('[MOCK] GET /users');
-        return [200, users];
+        return [200, users.results];
       }
     );
 
@@ -61,7 +47,7 @@
     $httpBackend.when('POST', '/users').respond(
       function(method, url, data, headers) {
         console.log('[MOCK] POST /users ' + data);
-        users.push(angular.fromJson(data));
+        users.results.push(angular.fromJson(data));
         return [201];
       }
     )
@@ -89,7 +75,7 @@
         var jobId = parseInt(match[1]);
         var index = usersIndexById(jobId);
         console.log('[MOCK] DELETE /users/' + jobId);
-        users.splice(index, 1);
+        users.results.splice(index, 1);
         return [204, {status: 'No content'}];
       }
     )
