@@ -1,3 +1,7 @@
+==============================================================================
+Django + Django Rest Framework + Angular 1.4 + Restangular
+==============================================================================
+
 Virtualenv::
 
   $ virtualenv .env
@@ -7,57 +11,44 @@ Install Dependencies::
 
   $ pip install -r requirements.txt
 
-Create Django Project::
 
-  $ django-admin startproject mysite
+Tutorial::
 
-Add rest framework as dependency (settings.py)::
+  http://www.django-rest-framework.org/tutorial/quickstart/
 
-    INSTALLED_APPS = (
-        ...
-        'rest_framework',
-    )
+Create Superuser::
 
-    REST_FRAMEWORK = {
-        # Use Django's standard `django.contrib.auth` permissions,
-        # or allow read-only access for unauthenticated users.
-        'DEFAULT_PERMISSION_CLASSES': [
-            'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-        ]
-    }
-
-Add rest framework URL patterns (urls.py)::
-
-    from django.conf.urls import url, include
-    from django.contrib.auth.models import User
-    from rest_framework import routers, serializers, viewsets
-
-    # Serializers define the API representation.
-    class UserSerializer(serializers.HyperlinkedModelSerializer):
-        class Meta:
-            model = User
-            fields = ('url', 'username', 'email', 'is_staff')
-
-    # ViewSets define the view behavior.
-    class UserViewSet(viewsets.ModelViewSet):
-        queryset = User.objects.all()
-        serializer_class = UserSerializer
-
-    # Routers provide an easy way of automatically determining the URL conf.
-    router = routers.DefaultRouter()
-    router.register(r'users', UserViewSet)
-
-    # Wire up our API using automatic URL routing.
-    # Additionally, we include login URLs for the browsable API.
-    urlpatterns = [
-        url(r'^', include(router.urls)),
-        url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
-    ]
-
-Migrate Django DB::
-
-  $ python manage.py migrate
+  $ python manage.py createsuperuser
 
 Start Django::
 
   $ python manage.py runserver
+
+Try request::
+
+  $ http -a admin:admin http://127.0.0.1:8000/users/
+
+Response::
+
+  HTTP/1.0 200 OK
+  Allow: GET, POST, HEAD, OPTIONS
+  Content-Type: application/json
+  Date: Fri, 14 Aug 2015 10:18:57 GMT
+  Server: WSGIServer/0.1 Python/2.7.6
+  Vary: Accept, Cookie
+  X-Frame-Options: SAMEORIGIN
+
+  {
+      "count": 1,
+      "next": null,
+      "previous": null,
+      "results": [
+          {
+              "email": "",
+              "groups": [],
+              "url": "http://127.0.0.1:8000/users/1/",
+              "username": "admin"
+          }
+      ]
+  }
+
