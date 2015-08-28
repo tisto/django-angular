@@ -52,3 +52,27 @@ Response::
       ]
   }
 
+
+PyTest Django
+-------------
+
+Installation::
+
+  $ pip install pytest-django
+
+pytest.ini::
+
+  [pytest]
+  DJANGO_SETTINGS_MODULE=yourproject.settings
+
+test_user.py::
+
+  from django.contrib.auth.models import User
+
+  import pytest
+
+
+  @pytest.mark.django_db
+  def test_my_user(admin_user):
+      me = User.objects.get(username='admin')
+      assert me.is_superuser
