@@ -26,7 +26,7 @@ Start Django::
 
 Try request::
 
-  $ http -a admin:admin http://127.0.0.1:8000/users/
+  $ http -a admin:admin GET http://127.0.0.1:8000/users/
 
 Response::
 
@@ -49,6 +49,78 @@ Response::
               "url": "http://127.0.0.1:8000/users/1/",
               "username": "admin"
           }
+      ]
+  }
+
+OPTIONS Request::
+
+  $ http -a admin:admin OPTIONS http://localhost:8000/users/
+
+OPTIONS Response::
+
+  HTTP/1.0 200 OK
+  Allow: GET, POST, HEAD, OPTIONS
+  Content-Type: application/json
+  Date: Fri, 28 Aug 2015 13:22:42 GMT
+  Server: WSGIServer/0.1 Python/2.7.10
+  Vary: Accept, Cookie
+  X-Frame-Options: SAMEORIGIN
+
+  {
+      "actions": {
+          "POST": {
+              "email": {
+                  "label": "Email address",
+                  "max_length": 254,
+                  "read_only": false,
+                  "required": false,
+                  "type": "email"
+              },
+              "groups": {
+                  "choices": [
+                      {
+                          "display_name": "mygroup",
+                          "value": "http://localhost:8000/groups/1/"
+                      }
+                  ],
+                  "help_text": "The groups this user belongs to. A user will get all permissions granted to each of their groups.",
+                  "label": "Groups",
+                  "read_only": false,
+                  "required": false,
+                  "type": "field"
+              },
+              "operation": {
+                  "label": "Operation",
+                  "read_only": true,
+                  "required": false,
+                  "type": "field"
+              },
+              "url": {
+                  "label": "Url",
+                  "read_only": true,
+                  "required": false,
+                  "type": "field"
+              },
+              "username": {
+                  "help_text": "Required. 30 characters or fewer. Letters, digits and @/./+/-/_ only.",
+                  "label": "Username",
+                  "max_length": 30,
+                  "read_only": false,
+                  "required": true,
+                  "type": "string"
+              }
+          }
+      },
+      "description": "API endpoint that allows users to be viewed or edited.",
+      "name": "User List",
+      "parses": [
+          "application/json",
+          "application/x-www-form-urlencoded",
+          "multipart/form-data"
+      ],
+      "renders": [
+          "application/json",
+          "text/html"
       ]
   }
 
