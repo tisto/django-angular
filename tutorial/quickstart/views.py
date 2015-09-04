@@ -1,6 +1,8 @@
 from django.contrib.auth.models import User
 from django.contrib.auth.models import Group
+from django.shortcuts import get_object_or_404
 from rest_framework import viewsets
+from rest_framework.response import Response
 from tutorial.quickstart.models import Application
 from tutorial.quickstart.serializers import UserSerializer
 from tutorial.quickstart.serializers import GroupSerializer
@@ -29,3 +31,29 @@ class ApplicationViewSet(viewsets.ModelViewSet):
     """
     queryset = Application.objects.all()
     serializer_class = ApplicationSerializer
+
+    def list(self, request):
+        queryset = Application.objects.all()
+        serializer = ApplicationSerializer(queryset, many=True)
+        return Response(serializer.data)
+
+    def create(self, request):
+        pass
+
+    def detail(self, request, pk=None):
+        pass
+
+    def retrieve(self, request, pk=None):
+        queryset = Application.objects.all()
+        app = get_object_or_404(queryset, pk=pk)
+        serializer = ApplicationSerializer(app)
+        return Response(serializer.data)
+
+    def update(self, request, pk=None):
+        pass
+
+    def partial_update(self, request, pk=None):
+        pass
+
+    def destroy(self, request, pk=None):
+        pass

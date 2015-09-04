@@ -1,4 +1,5 @@
 from rest_framework import renderers
+from rest_framework.reverse import reverse
 import json
 
 
@@ -8,18 +9,37 @@ class HydraRenderer(renderers.BaseRenderer):
     format = 'json'
 
     def render(self, data, media_type=None, renderer_context=None):
-        return json.dumps({
-            '@context': 'http://www.w3.org/ns/hydra/context.jsonld',
-            '@id': '',
-            '@type': 'PagedCollection',
-            'totalItems': data.get('count'),
-            'itemsPerPage': '10',
-            'firstPage': '',
-            'nextPage': data.get('next'),
-            'previousPage': data.get('previous'),
-            'lastPage': '',
-            'member': data.get('results'),
-            'operation': [
+        request = renderer_context.get('request')
+        result = {
+            '@context': 'http://www.w3.org/ns/hydra/context.jsonld'
+        }
+        if renderer_context.get('kwargs').get('pk'):
+            result['@type'] = u'Resource'
+            result['@id'] = reverse(
+                'application-detail',
+                args=[renderer_context.get('kwargs').get('pk')],
+                request=request
+            )
+            for key, value in data.items():
+                result[key] = value
+        else:
+            result['@type'] = u'PagedCollection'
+            result['@id'] = reverse(
+                'application-list',
+                request=request
+            )
+            result['member'] = [
+                {
+                    '@id': reverse(
+                        'application-detail',
+                        args=[x.get('id')],
+                        request=request
+                    ),
+                    'title': x.get('title')
+                }
+                for x in data
+            ]
+            result['operation'] = [
                 {
                     '@type': 'CreateResourceOperation',
                     'method': 'POST',
@@ -38,7 +58,13 @@ class HydraRenderer(renderers.BaseRenderer):
                     'title': 'Removes an existing user'
                 },
             ]
-        })
+            result['totalItems'] = None
+            result['itemsPerPage'] = '10'
+            result['firstPage'] = None
+            result['nextPage'] = None
+            result['previousPage'] = None
+            result['lastPage'] = None
+        return json.dumps(result)
 
 
 class JSONSchemaRenderer(renderers.JSONRenderer):

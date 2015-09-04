@@ -6,6 +6,7 @@ from tutorial.quickstart.models import Application
 @pytest.mark.django_db()
 def test_application_json_view(admin_client):
     app = Application()
+    app.title = u'My first application'
     app.firstname = u'John'
     app.lastname = u'Doe'
     app.email = u'john@doe.com'
@@ -17,5 +18,5 @@ def test_application_json_view(admin_client):
     assert 200 == response.status_code
     assert 'application/json' in response.get('Content-Type')
     assert 1 == len(json.loads(response.content).get('member'))
-    assert u'John' == \
-        json.loads(response.content).get('member')[0].get('firstname')
+    assert u'My first application' == \
+        json.loads(response.content).get('member')[0].get('title')

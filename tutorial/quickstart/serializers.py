@@ -17,11 +17,15 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class GroupSerializer(serializers.HyperlinkedModelSerializer):
+
     class Meta:
         model = Group
         fields = ('url', 'name')
 
 
 class ApplicationSerializer(serializers.HyperlinkedModelSerializer):
+
+    id = serializers.ReadOnlyField()
+
     class Meta:
         model = Application
