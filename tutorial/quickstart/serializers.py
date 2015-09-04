@@ -25,4 +25,3 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
 class ApplicationSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Application
-        fields = ('url', 'name')
