@@ -20,6 +20,10 @@ class HydraRenderer(renderers.BaseRenderer):
                 args=[renderer_context.get('kwargs').get('pk')],
                 request=request
             )
+            result['parent'] = reverse(
+                'application-list',
+                request=request
+            )
             for key, value in data.items():
                 result[key] = value
         else:

@@ -44,3 +44,6 @@ def test_application_json_detail_view(admin_client):
     assert u'Resource' == json.loads(response.content).get('@type')
     assert u'My first application' == \
         json.loads(response.content).get('title')
+    assert 'parent' in json.loads(response.content).keys()
+    assert u'http://testserver/application/' == \
+        json.loads(response.content).get('parent')
