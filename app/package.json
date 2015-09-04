@@ -14,6 +14,8 @@
     "angular-formly-templates-bootstrap": "^6.0.0",
     "angular-loading-bar": "^0.8.0",
     "angular-mocks": "^1.4.4",
+    "angular-schema-form": "^0.8.8",
+    "angular-schema-form-bootstrap": "^0.1.1",
     "angularjs": "0.0.1",
     "api-check": "^7.5.0",
     "bootstrap": "^3.3.5",

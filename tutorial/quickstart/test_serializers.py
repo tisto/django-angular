@@ -26,4 +26,5 @@ def test_user_serializer():
     from serializers import UserSerializer
     serializer = UserSerializer()
 
-    assert 'operation' in serializer.fields.keys()
+    assert ('url', 'username', 'email', 'groups') == \
+        tuple(serializer.fields.keys())

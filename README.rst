@@ -2,6 +2,31 @@
 Django + Django Rest Framework + Angular 1.4 + Restangular
 ==============================================================================
 
+Technologies
+------------
+
+Backend:
+
+- Django
+- Django REST Framework (http://www.django-rest-framework.org)
+
+Frontend:
+
+- Angular 1.4
+- Restangular
+- Angular New Router
+- Angular Schema Form (http://schemaform.io)
+
+REST API:
+
+- JSON-LD (http://json-ld.org)
+- Hydra (http://www.hydra-cg.com/spec/latest/core)
+- JSON Schema (http://json-schema.org)
+
+
+Setup
+-----
+
 Virtualenv::
 
   $ virtualenv .env
