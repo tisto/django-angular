@@ -76,24 +76,7 @@ class JSONSchemaRenderer(renderers.JSONRenderer):
     format = 'json'
 
     def render(self, data, media_type=None, renderer_context=None):
-        return json.dumps({
-            "title": "Example Schema",
-            "type": "object",
-            "properties": {
-                "username": {
-                    "title": "Username",
-                    "type": "string"
-                },
-                "email": {
-                    "title": "Email",
-                    "type": "string"
-                },
-                "age": {
-                    "title": "Age",
-                    "description": "Age in years",
-                    "type": "integer",
-                    "minimum": 0
-                }
-            },
-            "required": ["username", "email"]
-        })
+        from serializers import JsonSchemaSerializer
+        serializer = JsonSchemaSerializer()
+        result = serializer.to_representation(data)
+        return json.dumps(result)
