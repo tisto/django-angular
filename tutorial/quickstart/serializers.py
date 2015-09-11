@@ -93,6 +93,7 @@ class JsonSchemaSerializer(serializers.ModelSerializer):
                 if isinstance(value, m_key):
                     new_value = m_value
             result['properties'][key] = {
+                'key': key,
                 'title': value.label or key,
                 'type': new_value
             }
