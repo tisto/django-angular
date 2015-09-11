@@ -4,18 +4,44 @@ from tutorial.quickstart.models import Application
 from rest_framework import serializers
 from rest_framework import fields
 
+# Mapping from Django REST Framework models to JSON schema
+# http://www.django-rest-framework.org/api-guide/fields/
 # http://json-schema.org/latest/json-schema-core.html#anchor8
 REST_MODEL_TO_JSON_SCHEMA_MAPPING = {
-    #models.CharField: 'array',
+    # Boolean Fields
     fields.BooleanField: 'boolean',
     fields.NullBooleanField: 'boolean',
-    #models.IntegerField: 'integer',
-    #models.DecimalField: 'number',
-    #models.FloatField: 'number',
-    # 'null',
-    # 'object',
-    fields.IntegerField: 'integer',
+    # String Fields
     fields.CharField: 'string',
+    fields.EmailField: 'string',
+    fields.RegexField: 'string',
+    fields.SlugField: 'string',
+    fields.URLField: 'string',
+    fields.UUIDField: 'string',
+    fields.FilePathField: 'string',
+    fields.IPAddressField: 'string',
+    # Numeric Fields
+    fields.IntegerField: 'integer',
+    fields.FloatField: 'number',
+    fields.DecimalField: 'number',
+    # Date and time fields
+    fields.DateTimeField: 'string',
+    fields.DateField: 'string',
+    fields.TimeField: 'string',
+    # Choice selection fields
+    fields.ChoiceField: 'string',
+    fields.MultipleChoiceField: 'string',
+    # File upload fields
+    fields.FileField: 'string',
+    fields.ImageField: 'string',
+    # Composite fields
+    fields.ListField: 'array',
+    fields.DictField: 'object',
+    # Miscellaneous fields
+    fields.ReadOnlyField: 'string',
+    fields.HiddenField: 'string',
+    fields.ModelField: 'string',
+    fields.SerializerMethodField: 'string',
 }
 
 
@@ -78,7 +104,3 @@ class JsonSchemaSerializer(serializers.ModelSerializer):
                     new_value = m_value
             result['properties'][key] = {'type': new_value}
         return result
-
-    def to_internal_value(self, data):
-        import pdb; pdb.set_trace()
-
