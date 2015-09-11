@@ -14,34 +14,25 @@
   <script src="/node_modules/underscore/underscore.js"></script>
   <script src="/node_modules/restangular/dist/restangular.js"></script>
   <script src="/node_modules/api-check/dist/api-check.js"></script>
-  <script src="/node_modules/angular-formly/dist/formly.js"></script>
-  <script src="/node_modules/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.js"></script>
+  <script src="/node_modules/angular-sanitize/angular-sanitize.min.js"></script>
+  <script src="/node_modules/tv4/tv4.js"></script>
+  <script src="/node_modules/objectpath/lib/ObjectPath.js"></script>
+  <script src="/node_modules/angular-schema-form/dist/schema-form.min.js"></script>
+  <script src="/node_modules/angular-schema-form/dist/bootstrap-decorator.min.js"></script>
   <script src="/js/app.js"></script>
   <script src="/js/app.mocks.js"></script>
   <!-- endinject -->
 </head>
 <body>
 
-  <div ng-controller="FormController as vm">
-    <formly-form model="vm.application" fields="vm.applicationFields">
-      <button type="submit" class="btn btn-default" ng-click="vm.submit(vm.application)">Submit</button>
-    </formly-form>
-  </div>
-
-  <div ng-controller="TextController">
-    <p>{{someText.message}}</p>
-  </div>
-
-  <div ng-controller="UsersController">
-    <input ng-model="username" />
-    <button ng-click="createUser(username)">Add User</button>
-    <h3>Users</h3>
-    <ul ng-repeat="user in users">
-      <li>
-        {{user.username}} ({{user.id}})
-        <button ng-click="deleteUser(user)">x</button>
-      </li>
-    </ul>
+  <div ng-controller="FormController" style="width: 60%; margin: 50px 20%;">
+    <form sf-schema="schema"
+          sf-form="form"
+          sf-model="model"
+          ng-submit="onSubmit(myForm)"
+          sf-options="{ formDefaults: { ngModelOptions: { name: 'John Doe' } }}"></form>
+    <h3>Model</h3>
+    <pre>{{model}}</pre>
   </div>
 
 </body>

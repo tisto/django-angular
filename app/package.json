@@ -10,8 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "angular": "^1.4.4",
-    "angular-formly": "^6.23.2",
-    "angular-formly-templates-bootstrap": "^6.0.0",
     "angular-loading-bar": "^0.8.0",
     "angular-mocks": "^1.4.4",
     "angular-schema-form": "^0.8.8",
@@ -26,6 +24,10 @@
     "gulp-sourcemaps": "^1.5.2",
     "gulp-watch": "^4.3.4",
     "restangular": "^1.5.1",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "angular-sanitize": "^1.4.4",
+    "angular-schema-form": "^0.8.8",
+    "objectpath": "^1.2.1",
+    "tv4": "^1.2.3"
   }
 }
