@@ -85,22 +85,15 @@ class JsonSchemaSerializer(serializers.ModelSerializer):
         result = {
             "title": self.Meta.model.__doc__,
             "type": "object",
-            "properties": {
-                "firstname": {
-                    "type": "string"
-                },
-                "lastname": {
-                    "type": "string"
-                },
-                "email": {
-                    "type": "string"
-                }
-            }
+            "properties": {}
         }
         for key, value in self.get_fields().items():
             new_value = 'UNKNOWN'
             for m_key, m_value in REST_MODEL_TO_JSON_SCHEMA_MAPPING.items():  # noqa
                 if isinstance(value, m_key):
                     new_value = m_value
-            result['properties'][key] = {'type': new_value}
+            result['properties'][key] = {
+                'title': value.label or key,
+                'type': new_value
+            }
         return result

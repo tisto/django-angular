@@ -46,7 +46,11 @@ def test_json_schema_serializer():
 
     assert result.get('title').startswith('Application')
     assert 'object' == result.get('type')
-    assert {'type': 'string'} == result.get('properties').get('firstname')
-    assert {'type': 'string'} == result.get('properties').get('lastname')
-    assert {'type': 'string'} == result.get('properties').get('email')
-    assert {'type': 'boolean'} == result.get('properties').get('first_time_application')  # noqa
+    assert 'firstname' == result['properties']['firstname']['title']
+    assert 'string' == result['properties']['firstname']['type']
+    assert 'lastname' == result['properties']['lastname']['title']
+    assert 'string' == result['properties']['lastname']['type']
+    assert 'email' == result['properties']['email']['title']
+    assert 'string' == result['properties']['email']['type']
+    assert 'first_time_application' == result['properties']['first_time_application']['title']  # noqa
+    assert 'boolean' == result['properties']['first_time_application']['type']
