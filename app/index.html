@@ -21,6 +21,13 @@
   <!-- endinject -->
 </head>
 <body>
+
+  <div ng-controller="FormController as vm">
+    <formly-form model="vm.application" fields="vm.applicationFields">
+      <button type="submit" class="btn btn-default" ng-click="vm.submit(vm.application)">Submit</button>
+    </formly-form>
+  </div>
+
   <div ng-controller="TextController">
     <p>{{someText.message}}</p>
   </div>
@@ -35,11 +42,6 @@
         <button ng-click="deleteUser(user)">x</button>
       </li>
     </ul>
-    <div ng-controller="FormController as vm">
-      <formly-form model="vm.user" fields="vm.userFields">
-        <button type="submit" class="btn btn-default" ng-click="vm.submit(vm.user)">Submit</button>
-      </formly-form>
-    </div>
   </div>
 
 </body>
