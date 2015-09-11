@@ -4,61 +4,7 @@
   angular.module('myApp', ['angular-loading-bar', 'schemaForm']);
 
   angular.module('myApp').controller('FormController', function($scope) {
-    $scope.schema = {
-      type: "object",
-      properties: {
-        name: {
-          type: "string",
-          minLength: 2,
-          title: "Fullname",
-          description: "Fullname",
-          "x-schema-form": {
-            type: "string",
-            placeholder: "John Doe"
-          }
-        },
-        email: {
-          title: "Email",
-          type: "string",
-          pattern: "^\\S+@\\S+$",
-          description: "Email will be used for evil.",
-          "x-schema-form": {
-            type: "string",
-            placeholder: "john@doe.com"
-          }
-        },
-        spam: {
-          title: "Spam me, please",
-          type: "boolean"
-        },
-        title: {
-          title: 'Title',
-          type: "string",
-          enum: ['dr', 'jr', 'sir', 'mrs', 'mr', 'NaN', 'dj']
-        },
-        address: {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "street": { "type": "string" },
-              "zip": { "type": "string" },
-              "phone-numbers": {
-                "type": "array",
-                "items": {
-                  "type": "string",
-                  "title": "Phone Number"
-                }
-              }
-            }
-          }
-        }
-      },
-      required: [
-        'name',
-        'email'
-      ],
-    };
+    $scope.schema = {"type": "object", "properties": {"description": {"type": "string", "key": "description", "title": "description"}, "firstname": {"type": "string", "key": "firstname", "title": "firstname"}, "title": {"type": "string", "key": "title", "title": "title"}, "url": {"type": "string", "key": "url", "title": "url"}, "lastname": {"type": "string", "key": "lastname", "title": "lastname"}, "age": {"type": "integer", "key": "age", "title": "age"}, "id": {"type": "integer", "key": "id", "title": "ID"}, "attachment": {"type": "string", "key": "attachment", "title": "attachment"}, "image": {"type": "string", "key": "image", "title": "image"}, "gender": {"type": "string", "key": "gender", "title": "gender"}, "date": {"type": "string", "key": "date", "title": "date"}, "first_time_application": {"type": "boolean", "key": "first_time_application", "title": "first_time_application"}, "email": {"type": "string", "key": "email", "title": "email"}, "uuid": {"type": "string", "key": "uuid", "title": "uuid"}}, "title": "Application(id, title, firstname, lastname, email, age, description, date, attachment, image, url, uuid, gender, first_time_application)"};
 
     $scope.form = [
       "*",
@@ -94,5 +40,3 @@
   });
 
 })();
-
-
