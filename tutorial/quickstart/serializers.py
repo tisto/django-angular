@@ -7,7 +7,8 @@ from rest_framework import fields
 # http://json-schema.org/latest/json-schema-core.html#anchor8
 REST_MODEL_TO_JSON_SCHEMA_MAPPING = {
     #models.CharField: 'array',
-    #models.BooleanField: 'boolean',
+    fields.BooleanField: 'boolean',
+    fields.NullBooleanField: 'boolean',
     #models.IntegerField: 'integer',
     #models.DecimalField: 'number',
     #models.FloatField: 'number',

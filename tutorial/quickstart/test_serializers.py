@@ -1,4 +1,5 @@
 from django.contrib.auth.models import User
+from serializers import JsonSchemaSerializer
 from tutorial.quickstart.models import Application
 
 import pytest
@@ -39,11 +40,13 @@ def test_json_schema_serializer():
     app.lastname = u'Doe'
     app.email = u'john@doe.com'
     app.save()
-    from serializers import JsonSchemaSerializer
+
     serializer = JsonSchemaSerializer()
     result = serializer.to_representation(app)
+
     assert result.get('title').startswith('Application')
-    assert result.get('type') == 'object'
-    assert result.get('properties').get('firstname') == {'type': 'string'}
-    assert result.get('properties').get('lastname') == {'type': 'string'}
-    assert result.get('properties').get('email') == {'type': 'string'}
+    assert 'object' == result.get('type')
+    assert {'type': 'string'} == result.get('properties').get('firstname')
+    assert {'type': 'string'} == result.get('properties').get('lastname')
+    assert {'type': 'string'} == result.get('properties').get('email')
+    assert {'type': 'boolean'} == result.get('properties').get('first_time_application')  # noqa
