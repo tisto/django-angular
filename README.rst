@@ -2,13 +2,19 @@
 Django + Django Rest Framework + Angular 1.4 + Restangular
 ==============================================================================
 
-Technologies
-------------
+Technology Stack
+----------------
 
 Backend:
 
 - Django
 - Django REST Framework (http://www.django-rest-framework.org)
+
+REST API:
+
+- JSON-LD (http://json-ld.org)
+- Hydra (http://www.hydra-cg.com/spec/latest/core)
+- JSON Schema (http://json-schema.org)
 
 Frontend:
 
@@ -17,15 +23,9 @@ Frontend:
 - Angular New Router
 - Angular Schema Form (http://schemaform.io)
 
-REST API:
 
-- JSON-LD (http://json-ld.org)
-- Hydra (http://www.hydra-cg.com/spec/latest/core)
-- JSON Schema (http://json-schema.org)
-
-
-Setup
------
+Setup Backend
+-------------
 
 Virtualenv::
 
@@ -35,7 +35,6 @@ Virtualenv::
 Install Dependencies::
 
   $ pip install -r requirements.txt
-
 
 Tutorial::
 
@@ -148,6 +147,19 @@ OPTIONS Response::
           "text/html"
       ]
   }
+
+
+Setup Frontend
+--------------
+
+Install dependencies::
+
+  $ cd app
+  $ npm install
+
+Start Gulp dev server::
+
+  $ gulp
 
 
 PyTest Django
