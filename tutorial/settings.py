@@ -38,11 +38,13 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'corsheaders',
     'tutorial.quickstart',
 )
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -53,17 +55,21 @@ MIDDLEWARE_CLASSES = (
 )
 
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
+    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.AllowAny',),
     'PAGE_SIZE': 10,
     'DEFAULT_CONTENT_NEGOTIATION_CLASS': 'tutorial.quickstart.negotiation.IgnoreClientContentNegotiation',
     'DEFAULT_RENDERER_CLASSES': (
         'tutorial.quickstart.renderers.JSONSchemaRenderer',
         'tutorial.quickstart.renderers.HydraRenderer',
-        'rest_framework.renderers.JSONRenderer',
         'rest_framework.renderers.BrowsableAPIRenderer',
+        'rest_framework.renderers.JSONRenderer',
+
     ),
 }
 
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:3000'
+)
 
 ROOT_URLCONF = 'tutorial.urls'
 

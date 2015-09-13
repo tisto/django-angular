@@ -21,7 +21,7 @@ class IgnoreClientContentNegotiation(BaseContentNegotiation):
                 if isinstance(renderer, HydraRenderer):
                     return (renderer, renderer.media_type)
         elif 'application/schema+json' in request.content_type or \
-             request.query_params.get('format') == 'json':
+             request.query_params.get('format') == 'schema_json':
             for renderer in renderers:
                 if isinstance(renderer, JSONSchemaRenderer):
                     return (renderer, renderer.media_type)

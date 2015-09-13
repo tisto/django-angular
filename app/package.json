@@ -12,6 +12,7 @@
     "angular": "^1.4.4",
     "angular-loading-bar": "^0.8.0",
     "angular-mocks": "^1.4.4",
+    "angular-sanitize": "^1.4.4",
     "angular-schema-form": "^0.8.8",
     "angular-schema-form-bootstrap": "^0.1.1",
     "angularjs": "0.0.1",
@@ -23,11 +24,11 @@
     "gulp-inject": "^1.5.0",
     "gulp-sourcemaps": "^1.5.2",
     "gulp-watch": "^4.3.4",
-    "restangular": "^1.5.1",
-    "underscore": "^1.8.3",
-    "angular-sanitize": "^1.4.4",
-    "angular-schema-form": "^0.8.8",
     "objectpath": "^1.2.1",
-    "tv4": "^1.2.3"
+    "proxy-middleware": "^0.14.0",
+    "restangular": "^1.5.1",
+    "tv4": "^1.2.3",
+    "underscore": "^1.8.3",
+    "url": "^0.11.0"
   }
 }

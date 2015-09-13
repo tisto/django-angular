@@ -73,7 +73,7 @@ class HydraRenderer(renderers.BaseRenderer):
 
 class JSONSchemaRenderer(renderers.JSONRenderer):
     media_type = 'application/schema+json'
-    format = 'json'
+    format = 'schema+json'
 
     def render(self, data, media_type=None, renderer_context=None):
         from serializers import JsonSchemaSerializer

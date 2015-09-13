@@ -2,11 +2,13 @@
   'use strict';
 
   // --- DEPENDENCIES --------------------------------------------------------
-  var gulp = require('gulp'),
-      browserSync = require('browser-sync'),
-      inject = require('gulp-inject'),
-      sourcemaps = require('gulp-sourcemaps'),
-      watch = require('gulp-watch');
+  var gulp = require('gulp');
+  var browserSync = require('browser-sync');
+  var inject = require('gulp-inject');
+  var proxy = require('proxy-middleware');
+  var sourcemaps = require('gulp-sourcemaps');
+  var url = require('url');
+  var watch = require('gulp-watch');
 
 
   // --- INDEX ---------------------------------------------------------------
@@ -44,9 +46,14 @@
 
   // --- BROWSER SYNC --------------------------------------------------------
   gulp.task('browser-sync', function() {
+    var proxyOptions = url.parse('http://localhost:8000');
+    proxyOptions.route = '/api';
+    // requests to `/api/x/y/z` are proxied to `http://localhost:3000/secret-api`
+
     browserSync({
       server: {
-        baseDir: "."
+        baseDir: ".",
+        middleware: [proxy(proxyOptions)]
       }
     });
   });

@@ -19,8 +19,8 @@ from rest_framework import routers
 from tutorial.quickstart import views
 
 router = routers.DefaultRouter()
-router.register(r'users', views.UserViewSet)
-router.register(r'groups', views.GroupViewSet)
+# router.register(r'users', views.UserViewSet)
+# router.register(r'groups', views.GroupViewSet)
 router.register(r'application', views.ApplicationViewSet)
 
 # Wire up our API using automatic URL routing.
@@ -28,5 +28,6 @@ router.register(r'application', views.ApplicationViewSet)
 urlpatterns = [
     url(r'^', include(router.urls)),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))  # noqa
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),  # noqa
+
 ]
