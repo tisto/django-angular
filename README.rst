@@ -162,6 +162,18 @@ Start Gulp dev server::
   $ gulp
 
 
+SQL Migrations
+--------------
+
+Create migrations after each model change::
+
+  $ python manage.py makemigrations
+
+Apply migrations to you SQL db::
+
+  $ python manage.py migrate
+
+
 PyTest Django
 -------------
 
