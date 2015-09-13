@@ -3,6 +3,8 @@ from django.contrib.auth.models import Group
 from tutorial.quickstart.models import Application
 from rest_framework import serializers
 from rest_framework import fields
+from collections import OrderedDict
+
 
 # Mapping from Django REST Framework models to JSON schema
 # http://www.django-rest-framework.org/api-guide/fields/
@@ -85,11 +87,11 @@ class JsonSchemaSerializer(serializers.ModelSerializer):
         result = {
             "title": self.Meta.model.__doc__,
             "type": "object",
-            "properties": {}
+            "properties": OrderedDict()
         }
         for key, value in self.get_fields().items():
             new_value = 'UNKNOWN'
-            for m_key, m_value in REST_MODEL_TO_JSON_SCHEMA_MAPPING.items():  # noqa
+            for m_key, m_value in REST_MODEL_TO_JSON_SCHEMA_MAPPING.items():
                 if isinstance(value, m_key):
                     new_value = m_value
             result['properties'][key] = {
