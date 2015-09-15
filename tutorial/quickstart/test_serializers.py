@@ -58,6 +58,7 @@ def test_json_schema_serializer():
     assert 'email' == result['properties']['email']['key']
     assert 'email' == result['properties']['email']['title']
     assert 'string' == result['properties']['email']['type']
+    assert '^\\S+@\\S+$' == result['properties']['email']['pattern']
 
     assert 'first_time_application' == result['properties']['first_time_application']['key']  # noqa
     assert 'first_time_application' == result['properties']['first_time_application']['title']  # noqa

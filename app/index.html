@@ -25,13 +25,19 @@
 <body>
 
   <div ng-controller="FormController" style="width: 60%; margin: 50px 20%;">
+
     <form sf-schema="schema"
           sf-form="form"
           sf-model="model"
           ng-submit="onSubmit(myForm)"
           sf-options="{ formDefaults: { ngModelOptions: { name: 'John Doe' } }}"></form>
+
+    <!-- Debug -->
+    <h3>JSON Schema</h3>
+    <pre>{{schema | json}}</pre>
     <h3>Model</h3>
     <pre>{{model}}</pre>
+
   </div>
 
 </body>

@@ -11,39 +11,43 @@ from collections import OrderedDict
 # http://json-schema.org/latest/json-schema-core.html#anchor8
 REST_MODEL_TO_JSON_SCHEMA_MAPPING = {
     # Boolean Fields
-    fields.BooleanField: 'boolean',
-    fields.NullBooleanField: 'boolean',
+    fields.BooleanField: {'type': 'boolean'},
+    fields.NullBooleanField: {'type': 'boolean'},
     # String Fields
-    fields.CharField: 'string',
-    fields.EmailField: 'string',
-    fields.RegexField: 'string',
-    fields.SlugField: 'string',
-    fields.URLField: 'string',
-    fields.UUIDField: 'string',
-    fields.FilePathField: 'string',
-    fields.IPAddressField: 'string',
+    fields.CharField: {'type': 'string'},
+    fields.EmailField: {
+        'type': 'string',
+        'pattern': '^\\S+@\\S+$',
+        'description': 'Email address.',
+    },
+    fields.RegexField: {'type': 'string'},
+    fields.SlugField: {'type': 'string'},
+    fields.URLField: {'type': 'string'},
+    fields.UUIDField: {'type': 'string'},
+    fields.FilePathField: {'type': 'string'},
+    fields.IPAddressField: {'type': 'string'},
     # Numeric Fields
-    fields.IntegerField: 'integer',
-    fields.FloatField: 'number',
-    fields.DecimalField: 'number',
+    fields.IntegerField: {'type': 'integer'},
+    fields.FloatField: {'type': 'number'},
+    fields.DecimalField: {'type': 'number'},
     # Date and time fields
-    fields.DateTimeField: 'string',
-    fields.DateField: 'string',
-    fields.TimeField: 'string',
+    fields.DateTimeField: {'type': 'string'},
+    fields.DateField: {'type': 'string'},
+    fields.TimeField: {'type': 'string'},
     # Choice selection fields
-    fields.ChoiceField: 'string',
-    fields.MultipleChoiceField: 'string',
+    fields.ChoiceField: {'type': 'string'},
+    fields.MultipleChoiceField: {'type': 'string'},
     # File upload fields
-    fields.FileField: 'string',
-    fields.ImageField: 'string',
+    fields.FileField: {'type': 'string'},
+    fields.ImageField: {'type': 'string'},
     # Composite fields
-    fields.ListField: 'array',
-    fields.DictField: 'object',
+    fields.ListField: {'type': 'array'},
+    fields.DictField: {'type': 'object'},
     # Miscellaneous fields
-    fields.ReadOnlyField: 'string',
-    fields.HiddenField: 'string',
-    fields.ModelField: 'string',
-    fields.SerializerMethodField: 'string',
+    fields.ReadOnlyField: {'type': 'string'},
+    fields.HiddenField: {'type': 'string'},
+    fields.ModelField: {'type': 'string'},
+    fields.SerializerMethodField: {'type': 'string'},
 }
 
 
@@ -90,13 +94,13 @@ class JsonSchemaSerializer(serializers.ModelSerializer):
             "properties": OrderedDict()
         }
         for key, value in self.get_fields().items():
-            new_value = 'UNKNOWN'
             for m_key, m_value in REST_MODEL_TO_JSON_SCHEMA_MAPPING.items():
                 if isinstance(value, m_key):
-                    new_value = m_value
+                    mapping_dict = m_value
             result['properties'][key] = {
                 'key': key,
-                'title': value.label or key,
-                'type': new_value
+                'title': value.label or key
             }
+            for m_key, m_value in mapping_dict.items():
+                result['properties'][key][m_key] = m_value
         return result
