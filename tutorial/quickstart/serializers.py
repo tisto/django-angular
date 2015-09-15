@@ -31,9 +31,9 @@ REST_MODEL_TO_JSON_SCHEMA_MAPPING = {
     fields.FloatField: {'type': 'number'},
     fields.DecimalField: {'type': 'number'},
     # Date and time fields
-    fields.DateTimeField: {'type': 'string'},
-    fields.DateField: {'type': 'string'},
-    fields.TimeField: {'type': 'string'},
+    fields.DateTimeField: {'type': 'string', 'format': 'datetimepicker'},
+    fields.DateField: {'type': 'string', 'format': 'datepicker'},
+    fields.TimeField: {'type': 'string', 'format': 'timepicker'},
     # Choice selection fields
     fields.ChoiceField: {'type': 'string'},
     fields.MultipleChoiceField: {'type': 'string'},

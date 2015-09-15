@@ -1,7 +1,13 @@
 (function() {
   'use strict';
 
-  angular.module('myApp', ['angular-loading-bar', 'schemaForm']);
+  angular.module('myApp', [
+    'angular-loading-bar',
+    'schemaForm',
+    'schemaForm-datepicker',
+    'schemaForm-timepicker',
+    'schemaForm-datetimepicker'
+  ]);
 
   angular.module('myApp').factory('httpRequestInterceptor', [
     function() {
@@ -20,9 +26,12 @@
   angular.module('myApp').factory('jsonSchemaService',
     function($http) {
       var getJsonSchema = function() {
+        var url = 'http://localhost:8000/application/';
         return $http({
           method: 'GET',
-          url: 'http://localhost:8000/application/'
+          url: url
+        }).error(function(data, status) {
+          alert('Error accessing "' + url + '" Status: ' + status);
         });
       };
       return {

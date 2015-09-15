@@ -28,7 +28,9 @@ class Application(models.Model):
         null=True,
         blank=True
     )
-    date = models.DateField(u'Date', null=True, blank=True)
+    date = models.DateField(u'Date', auto_now=True, null=True)
+    datetime = models.DateTimeField(u'Datetime', auto_now=True, null=True)
+    time = models.TimeField(u'Time', auto_now=True, null=True)
     attachment = models.FileField(u'Attachment', null=True, blank=True)
     image = models.ImageField(u'Image', null=True, blank=True)
     url = models.URLField(u'URL', null=True, blank=True)

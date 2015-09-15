@@ -1,5 +1,5 @@
 {
-  "name": "django-user-management",
+  "name": "djangorestframework-json-schema",
   "version": "0.0.0",
   "description": "",
   "main": "app.js",
@@ -15,6 +15,7 @@
     "angular-sanitize": "^1.4.4",
     "angular-schema-form": "^0.8.8",
     "angular-schema-form-bootstrap": "^0.1.1",
+    "angular-strap": "^2.3.2",
     "angularjs": "0.0.1",
     "api-check": "^7.5.0",
     "bootstrap": "^3.3.5",
@@ -27,6 +28,7 @@
     "objectpath": "^1.2.1",
     "proxy-middleware": "^0.14.0",
     "restangular": "^1.5.1",
+    "schema-form-datetimepicker": "git://github.com/chengz/schema-form-datetimepicker",
     "tv4": "^1.2.3",
     "underscore": "^1.8.3",
     "url": "^0.11.0"
