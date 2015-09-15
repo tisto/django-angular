@@ -6,7 +6,8 @@ class Application(models.Model):
     title = models.CharField(
         u'Title',
         help_text=u'Title of the application',
-        max_length=255)
+        max_length=255
+    )
     description = models.TextField(
         u'Description',
         help_text=u'Description of the application',
@@ -39,4 +40,4 @@ class Application(models.Model):
         blank=True,
         choices=(('m', 'male'), ('f', 'female'),)
     )
-    first_time_application = models.NullBooleanField('First time application')
+    first_time_application = models.NullBooleanField(u'First time application')

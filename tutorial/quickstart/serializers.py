@@ -17,7 +17,8 @@ REST_MODEL_TO_JSON_SCHEMA_MAPPING = {
     fields.CharField: {'type': 'string'},
     fields.EmailField: {
         'type': 'string',
-        'pattern': '^\\S+@\\S+$'
+        'pattern': '^\\S+@\\S+$',
+        'validationMessage': 'Please enter a valid email address.'
     },
     fields.RegexField: {'type': 'string'},
     fields.SlugField: {'type': 'string'},
