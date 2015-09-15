@@ -40,7 +40,6 @@
 
       jsonSchemaService.get_schema().success(function(data, status) {
         $scope.schema = data;
-        console.log(data);
       });
 
       $scope.form = [

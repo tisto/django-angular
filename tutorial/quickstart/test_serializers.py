@@ -48,15 +48,15 @@ def test_json_schema_serializer():
     assert 'object' == result.get('type')
 
     assert 'firstname' == result['properties']['firstname']['key']
-    assert 'firstname' == result['properties']['firstname']['title']
+    assert 'First name' == result['properties']['firstname']['title']
     assert 'string' == result['properties']['firstname']['type']
 
     assert 'lastname' == result['properties']['lastname']['key']
-    assert 'lastname' == result['properties']['lastname']['title']
+    assert 'Last name' == result['properties']['lastname']['title']
     assert 'string' == result['properties']['lastname']['type']
 
     assert 'email' == result['properties']['email']['key']
-    assert 'email' == result['properties']['email']['title']
+    assert 'Email address' == result['properties']['email']['title']
     assert 'string' == result['properties']['email']['type']
     assert '^\\S+@\\S+$' == result['properties']['email']['pattern']
 

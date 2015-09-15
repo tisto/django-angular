@@ -17,8 +17,7 @@ REST_MODEL_TO_JSON_SCHEMA_MAPPING = {
     fields.CharField: {'type': 'string'},
     fields.EmailField: {
         'type': 'string',
-        'pattern': '^\\S+@\\S+$',
-        'description': 'Email address.',
+        'pattern': '^\\S+@\\S+$'
     },
     fields.RegexField: {'type': 'string'},
     fields.SlugField: {'type': 'string'},
@@ -99,7 +98,8 @@ class JsonSchemaSerializer(serializers.ModelSerializer):
                     mapping_dict = m_value
             result['properties'][key] = {
                 'key': key,
-                'title': value.label or key
+                'title': value.label or key,
+                'description': value.help_text or '',
             }
             for m_key, m_value in mapping_dict.items():
                 result['properties'][key][m_key] = m_value
