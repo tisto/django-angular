@@ -89,9 +89,22 @@ class JsonSchemaSerializer(serializers.ModelSerializer):
 
     def to_representation(self, obj):
         result = {
-            "title": self.Meta.model.__doc__,
-            "type": "object",
-            "properties": OrderedDict()
+            'title': self.Meta.model.__doc__,
+            'type': 'object',
+            'form': [
+                '*',
+                {
+                  'type': 'submit',
+                  'title': 'Save'
+                },
+                {
+                  'type': 'button',
+                  'title': 'Cancel',
+                  'style': 'btn-default',
+                  'onClick': 'clearForm(form)'
+                },
+            ],
+            'properties': OrderedDict()
         }
         for key, value in self.get_fields().items():
             for m_key, m_value in REST_MODEL_TO_JSON_SCHEMA_MAPPING.items():

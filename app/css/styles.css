@@ -1,2 +1,7 @@
 body {
 }
+
+/* display form buttons inline */
+.schema-form-submit {
+  display: inline;
+}

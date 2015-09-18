@@ -36,27 +36,14 @@
   angular.module('myApp').controller('FormController',
     function($scope, $timeout, jsonSchemaService) {
 
+      $scope.model = {};
       $scope.schema = {};
+      $scope.form = [];
 
       jsonSchemaService.get_schema().success(function(data, status) {
         $scope.schema = data;
+        $scope.form = data.form;
       });
-
-      $scope.form = [
-        "*",
-        {
-          type: "button",
-          title: "Cancel",
-          style: 'btn-default',
-          onClick: "clearForm(form)"
-        },
-        {
-          type: "submit",
-          title: "Save"
-        }
-      ];
-
-      $scope.model = {};
 
       $scope.onSubmit = function(form) {
         // First we broadcast an event so all fields validate themselves
