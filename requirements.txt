@@ -1,7 +1,14 @@
+# Django
 Django
+django-cors-headers
+Pillow
+
+# Django REST Framework
 djangorestframework
 markdown       # Markdown support for the browsable API.
 django-filter  # Filtering support
 pytest-django
+
+# Dev
 pdbpp
 fancycompleter

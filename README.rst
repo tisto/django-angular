@@ -36,11 +36,15 @@ Install Dependencies::
 
   $ pip install -r requirements.txt
 
-Tutorial::
+Create Database::
 
-  http://www.django-rest-framework.org/tutorial/quickstart/
+  $ python manage.py migrate
 
 Create Superuser::
+
+  $ echo "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@example.com', 'admin')" | python manage.py shell
+
+Or manually::
 
   $ python manage.py createsuperuser
 
@@ -50,7 +54,7 @@ Start Django::
 
 Try request::
 
-  $ http -a admin:admin GET http://127.0.0.1:8000/users/
+  $ http -a admin:admin GET http://127.0.0.1:8000/application/
 
 Response::
 
@@ -78,7 +82,7 @@ Response::
 
 OPTIONS Request::
 
-  $ http -a admin:admin OPTIONS http://localhost:8000/users/
+  $ http -a admin:admin OPTIONS http://localhost:8000/application/
 
 OPTIONS Response::
 
