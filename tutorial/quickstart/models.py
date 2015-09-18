@@ -28,6 +28,31 @@ class Application(models.Model):
         max_length=255
     )
 
+    street = models.CharField(
+        u'Street',
+        help_text=u'Your street name',
+        null=True,
+        max_length=255
+    )
+
+    house_number = models.CharField(
+        u'House number',
+        null=True,
+        max_length=255
+    )
+
+    zip_number = models.CharField(
+        u'ZIP number',
+        null=True,
+        max_length=5
+    )
+
+    city = models.CharField(
+        u'City',
+        null=True,
+        max_length=255
+    )
+
     email = models.EmailField(
         u'Email address',
         help_text=u'Your email address',

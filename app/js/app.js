@@ -47,31 +47,58 @@
         // Customize Form appearance
         var firstnameIndex = $scope.schema.form.indexOf('firstname');
         $scope.schema.form[firstnameIndex] = {
+          'type': 'section',
+          'htmlClass': 'row',
+          'items': [
+            {
               'type': 'section',
-              'htmlClass': 'row',
+              'htmlClass': 'col-xs-6',
               'items': [
-                {
-                  'type': 'section',
-                  'htmlClass': 'col-xs-6',
-                  'items': [
-                    'firstname'
-                  ]
-                },
-                {
-                  'type': 'section',
-                  'htmlClass': 'col-xs-6',
-                  'items': [
-                    'lastname'
-                  ]
-                }
+                'firstname'
               ]
-          };
+            },
+            {
+              'type': 'section',
+              'htmlClass': 'col-xs-6',
+              'items': [
+                'lastname'
+              ]
+            }
+          ]
+        };
         var lastnameIndex = $scope.schema.form.indexOf('lastname');
         $scope.schema.form[lastnameIndex] = {
+          'type': 'section',
+          'htmlClass': 'row',
+          'items': []
+        };
+        var streetIndex = $scope.schema.form.indexOf('street');
+        $scope.schema.form[streetIndex] = {
+          'type': 'section',
+          'htmlClass': 'row',
+          'items': [
+            {
               'type': 'section',
-              'htmlClass': 'row',
-              'items': []
-          };
+              'htmlClass': 'col-xs-10',
+              'items': [
+                'street'
+              ]
+            },
+            {
+              'type': 'section',
+              'htmlClass': 'col-xs-2',
+              'items': [
+                'house_number'
+              ]
+            }
+          ]
+        };
+        var houseNumberIndex = $scope.schema.form.indexOf('house_number');
+        $scope.schema.form[houseNumberIndex] = {
+          'type': 'section',
+          'htmlClass': 'row',
+          'items': []
+        };
       });
 
       $scope.onSubmit = function(form) {
