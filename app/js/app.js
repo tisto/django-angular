@@ -43,6 +43,35 @@
       jsonSchemaService.get_schema().success(function(data, status) {
         $scope.schema = data;
         $scope.form = data.form;
+
+        // Customize Form appearance
+        var firstnameIndex = $scope.schema.form.indexOf('firstname');
+        $scope.schema.form[firstnameIndex] = {
+              'type': 'section',
+              'htmlClass': 'row',
+              'items': [
+                {
+                  'type': 'section',
+                  'htmlClass': 'col-xs-6',
+                  'items': [
+                    'firstname'
+                  ]
+                },
+                {
+                  'type': 'section',
+                  'htmlClass': 'col-xs-6',
+                  'items': [
+                    'lastname'
+                  ]
+                }
+              ]
+          };
+        var lastnameIndex = $scope.schema.form.indexOf('lastname');
+        $scope.schema.form[lastnameIndex] = {
+              'type': 'section',
+              'htmlClass': 'row',
+              'items': []
+          };
       });
 
       $scope.onSubmit = function(form) {

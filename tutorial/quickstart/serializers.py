@@ -91,21 +91,10 @@ class JsonSchemaSerializer(serializers.ModelSerializer):
         result = {
             'title': self.Meta.model.__doc__,
             'type': 'object',
-            'form': [
-                '*',
-                {
-                  'type': 'submit',
-                  'title': 'Save'
-                },
-                {
-                  'type': 'button',
-                  'title': 'Cancel',
-                  'style': 'btn-default',
-                  'onClick': 'clearForm(form)'
-                },
-            ],
+            'form': [],
             'properties': OrderedDict()
         }
+        # Schema
         for key, value in self.get_fields().items():
             for m_key, m_value in REST_MODEL_TO_JSON_SCHEMA_MAPPING.items():
                 if isinstance(value, m_key):
@@ -117,4 +106,30 @@ class JsonSchemaSerializer(serializers.ModelSerializer):
             }
             for m_key, m_value in mapping_dict.items():
                 result['properties'][key][m_key] = m_value
+
+        # Form Helper
+        result['form'].append({
+            'type': 'help',
+            'helpvalue': '<div class=\'alert alert-info\'>Example schemaform.io Form</div>'
+        })
+
+        # Form Keys
+        for key, value in self.get_fields().items():
+            result['form'].append(key)
+
+        # Form Actions
+        result['form'].append(
+            {
+                'type': 'submit',
+                'title': 'Save'
+            }
+        )
+        result['form'].append(
+            {
+                'type': 'button',
+                'title': 'Cancel',
+                'style': 'btn-default',
+                'onClick': 'clearForm(form)'
+            }
+        )
         return result
