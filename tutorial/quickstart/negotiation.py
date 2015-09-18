@@ -6,14 +6,12 @@ from tutorial.quickstart.renderers import HydraRenderer
 class IgnoreClientContentNegotiation(BaseContentNegotiation):
 
     def select_parser(self, request, parsers):
-        """
-        Select the first parser in the `.parser_classes` list.
+        """Select the first parser in the `.parser_classes` list.
         """
         return parsers[0]
 
     def select_renderer(self, request, renderers, format_suffix):
-        """
-        Select the first renderer in the `.renderer_classes` list.
+        """Select the first renderer in the `.renderer_classes` list.
         """
         if 'application/json' in request.META.get('HTTP_ACCEPT', []) or \
            request.query_params.get('format') == 'json':

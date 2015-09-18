@@ -9,19 +9,10 @@
     'schemaForm-datetimepicker'
   ]);
 
-  angular.module('myApp').factory('httpRequestInterceptor', [
-    function() {
-      return {
-        request: function(config) {
-          config.headers = {
-            'Accept': 'application/schema+json',
-            'Access-Control-Allow-Origin': 'localhost:8000'
-          };
-          return config;
-        }
-      }
-    }
-  ]);
+  angular.module('myApp').run(function($http) {
+    // Make Angular send Accept: 'application/schema+json' by default
+    $http.defaults.headers.common.Accept = 'application/schema+json'
+  });
 
   angular.module('myApp').factory('jsonSchemaService',
     function($http) {
