@@ -9,6 +9,8 @@ def test_content_negotiation_application_json(admin_client):
     assert 200 == response.status_code
     assert 'application/json' in response.get('Content-Type')
     assert json.loads(response.content)
+    assert json.loads(response.content).get('@context')
+    assert json.loads(response.content).get('@id')
 
 
 def test_content_negotiation_json_schema(admin_client):
@@ -19,5 +21,5 @@ def test_content_negotiation_json_schema(admin_client):
     assert 200 == response.status_code
     assert 'application/schema+json' in response.get('Content-Type')
     assert json.loads(response.content)
-#    assert json.loads(response.content)\
-#        .get('properties').get('firstname') is not None
+    assert json.loads(response.content).get('type') == u'object'
+    assert json.loads(response.content).get('properties')
