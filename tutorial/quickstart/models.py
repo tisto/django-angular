@@ -8,38 +8,99 @@ class Application(models.Model):
         help_text=u'Title of the application',
         max_length=255
     )
+
     description = models.TextField(
         u'Description',
         help_text=u'Description of the application',
         null=True,
         blank=True
     )
-    firstname = models.CharField(u'First name', max_length=255)
-    lastname = models.CharField(u'Last name', max_length=255)
+
+    firstname = models.CharField(
+        u'First name',
+        help_text=u'Your first name',
+        max_length=255
+    )
+
+    lastname = models.CharField(
+        u'Last name',
+        help_text=u'Your last name',
+        max_length=255
+    )
+
     email = models.EmailField(
         u'Email address',
         help_text=u'Your email address',
         null=True,
         blank=True
     )
+
     age = models.IntegerField(
         u'Age',
         help_text='Your age',
         null=True,
         blank=True
     )
-    date = models.DateField(u'Date', auto_now=True, null=True)
-    datetime = models.DateTimeField(u'Datetime', auto_now=True, null=True)
-    time = models.TimeField(u'Time', auto_now=True, null=True)
-    attachment = models.FileField(u'Attachment', null=True, blank=True)
-    image = models.ImageField(u'Image', null=True, blank=True)
-    url = models.URLField(u'URL', null=True, blank=True)
-    uuid = models.UUIDField(u'UUID', null=True, blank=True)
+
+    date = models.DateField(
+        u'Date',
+        help_text=u'Example of a Django DateField with a date picker',
+        auto_now=True,
+        null=True
+    )
+
+    datetime = models.DateTimeField(
+        u'Datetime',
+        help_text=u'Example of a Django DateTimeField with a datetime picker',
+        auto_now=True,
+        null=True
+    )
+
+    time = models.TimeField(
+        u'Time',
+        help_text=u'Example of a Django TimeField with a time picker',
+        auto_now=True,
+        null=True
+    )
+
+    attachment = models.FileField(
+        u'Attachment',
+        help_text=u'File attachment',
+        null=True,
+        blank=True
+    )
+
+    image = models.ImageField(
+        u'Image',
+        help_text=u'Image attachment',
+        null=True,
+        blank=True
+    )
+
+    url = models.URLField(
+        u'URL',
+        help_text=u'URL help text',
+        null=True,
+        blank=True
+    )
+
+    uuid = models.UUIDField(
+        u'UUID',
+        help_text=u'UUID help text',
+        null=True,
+        blank=True
+    )
+
     gender = models.CharField(
         u'Gender',
+        help_text=u'Gender help text',
         max_length=6,
         null=True,
         blank=True,
         choices=(('m', 'male'), ('f', 'female'),)
     )
-    first_time_application = models.NullBooleanField(u'First time application')
+
+    first_time_application = models.NullBooleanField(
+        u'First time application',
+        help_text=u'Is this your first time application?',
+    )
