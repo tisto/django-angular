@@ -1,5 +1,5 @@
 ==============================================================================
-Django + Django Rest Framework + Angular 1.4 + Restangular
+A Django Hypermedia API with an AngularJS Frontend
 ==============================================================================
 
 Technology Stack
@@ -7,7 +7,7 @@ Technology Stack
 
 Backend:
 
-- Django
+- Django (https://www.djangoproject.com)
 - Django REST Framework (http://www.django-rest-framework.org)
 
 REST API:
@@ -18,10 +18,37 @@ REST API:
 
 Frontend:
 
-- Angular 1.4
-- Restangular
-- Angular New Router
+- Angular 1.4 (https://angularjs.org)
+- Restangular (https://github.com/mgonto/restangular)
+- Angular New Router (https://angular.github.io/router)
 - Angular Schema Form (http://schemaform.io)
+
+
+Requirements
+------------
+
+Fields/Widgets:
+
+  - Text (Line, Textarea, RichText)
+  - Numeric (Int, Bool, Float, Boolean)
+  - Date and Time (Time, Date, DateTime)
+  - Upload (File, Image)
+  - Autocomplete (Fixed list, relation)
+
+Validation:
+
+  - Simple field validation
+  - Form validation
+
+Form:
+
+  - Conditional fields (that show up dependent on another choice)
+  - Subforms
+  - Relational subforms (create another object within a form)
+
+Customization:
+
+  - Overriding single widgets
 
 
 Setup Backend
