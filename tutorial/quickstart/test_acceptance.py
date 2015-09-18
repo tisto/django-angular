@@ -14,7 +14,7 @@ def test_application_json_list_view(admin_client):
 
     response = admin_client.get(
         '/application/',
-        HTTP_CONTENT_TYPE='application/json'
+        HTTP_ACCEPT='application/json'
     )
 
     assert 200 == response.status_code
@@ -36,7 +36,7 @@ def test_application_json_detail_view(admin_client):
 
     response = admin_client.get(
         '/application/{}/'.format(app.id),
-        HTTP_CONTENT_TYPE='application/json'
+        HTTP_ACCEPT='application/json'
     )
 
     assert 200 == response.status_code

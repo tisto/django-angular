@@ -79,33 +79,180 @@ Start Django::
 
   $ python manage.py runserver
 
-Try request::
+JSON Request::
 
-  $ http -a admin:admin GET http://127.0.0.1:8000/application/
+  $ http -a admin:admin GET http://127.0.0.1:8000/application/ Accept:application/json
 
-Response::
+Or::
+
+  $ http -a admin:admin GET http://127.0.0.1:8000/application/?format=json
+
+JSON LD Response::
 
   HTTP/1.0 200 OK
   Allow: GET, POST, HEAD, OPTIONS
-  Content-Type: application/json
-  Date: Fri, 14 Aug 2015 10:18:57 GMT
+  Content-Type: application/json; charset=utf-8
+  Date: Fri, 18 Sep 2015 08:07:11 GMT
   Server: WSGIServer/0.1 Python/2.7.6
   Vary: Accept, Cookie
   X-Frame-Options: SAMEORIGIN
 
   {
-      "count": 1,
-      "next": null,
-      "previous": null,
-      "results": [
+      "@context": "http://www.w3.org/ns/hydra/context.jsonld",
+      "@id": "http://127.0.0.1:8000/application/?format=json",
+      "@type": "PagedCollection",
+      "firstPage": null,
+      "itemsPerPage": "10",
+      "lastPage": null,
+      "member": [],
+      "nextPage": null,
+      "operation": [
           {
-              "email": "",
-              "groups": [],
-              "url": "http://127.0.0.1:8000/users/1/",
-              "username": "admin"
+              "@type": "CreateResourceOperation",
+              "expects": "",
+              "method": "POST",
+              "returns": "",
+              "title": "Creates a new user"
+          },
+          {
+              "@type": "ReplaceResourceOperation",
+              "method": "PUT",
+              "title": "Updates an existing user"
+          },
+          {
+              "@type": "DeleteResourceOperation",
+              "method": "DELETE",
+              "title": "Removes an existing user"
           }
-      ]
+      ],
+      "previousPage": null,
+      "totalItems": null
   }
+
+JSON Schema Request::
+
+ $ http -a admin:admin GET http://127.0.0.1:8000/application/ Accept:application/json_schema
+
+or::
+
+ $ http -a admin:admin GET http://127.0.0.1:8000/application/?format=json_schema
+
+JSON Schema Response::
+
+  HTTP/1.0 200 OK
+  Allow: GET, POST, HEAD, OPTIONS
+  Content-Type: application/schema+json
+  Date: Fri, 18 Sep 2015 08:08:00 GMT
+  Server: WSGIServer/0.1 Python/2.7.6
+  Vary: Accept, Cookie
+  X-Frame-Options: SAMEORIGIN
+
+  {
+      "properties": {
+          "age": {
+              "description": "Your age",
+              "key": "age",
+              "title": "age",
+              "type": "integer"
+          },
+          "attachment": {
+              "description": "",
+              "key": "attachment",
+              "title": "attachment",
+              "type": "string"
+          },
+          "date": {
+              "description": "",
+              "format": "datepicker",
+              "key": "date",
+              "title": "date",
+              "type": "string"
+          },
+          "datetime": {
+              "description": "",
+              "format": "datetimepicker",
+              "key": "datetime",
+              "title": "datetime",
+              "type": "string"
+          },
+          "description": {
+              "description": "Description of the application",
+              "key": "description",
+              "title": "description",
+              "type": "string"
+          },
+          "email": {
+              "description": "Your email address",
+              "key": "email",
+              "title": "Email address",
+              "type": "string"
+          },
+          "first_time_application": {
+              "description": "",
+              "key": "first_time_application",
+              "title": "first_time_application",
+              "type": "boolean"
+          },
+          "firstname": {
+              "description": "",
+              "key": "firstname",
+              "title": "First name",
+              "type": "string"
+          },
+          "gender": {
+              "description": "",
+              "key": "gender",
+              "title": "gender",
+              "type": "string"
+          },
+          "id": {
+              "description": "",
+              "key": "id",
+              "title": "ID",
+              "type": "integer"
+          },
+          "image": {
+              "description": "",
+              "key": "image",
+              "title": "image",
+              "type": "string"
+          },
+          "lastname": {
+              "description": "",
+              "key": "lastname",
+              "title": "Last name",
+              "type": "string"
+          },
+          "time": {
+              "description": "",
+              "format": "timepicker",
+              "key": "time",
+              "title": "time",
+              "type": "string"
+          },
+          "title": {
+              "description": "Title of the application",
+              "key": "title",
+              "title": "title",
+              "type": "string"
+          },
+          "url": {
+              "description": "",
+              "key": "url",
+              "title": "URL",
+              "type": "string"
+          },
+          "uuid": {
+              "description": "",
+              "key": "uuid",
+              "title": "UUID",
+              "type": "string"
+          }
+      },
+      "title": "Application(id, title, description, firstname, lastname, email, age, date, datetime, time, attachment, image, url, uuid, gender, first_time_application)",
+      "type": "object"
+  }
+
 
 OPTIONS Request::
 
