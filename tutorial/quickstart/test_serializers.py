@@ -50,6 +50,7 @@ def test_json_schema_serializer():
     assert 'firstname' == result['properties']['firstname']['key']
     assert 'First name' == result['properties']['firstname']['title']
     assert 'string' == result['properties']['firstname']['type']
+    assert 'firstname' in result['required']
 
     assert 'lastname' == result['properties']['lastname']['key']
     assert 'Last name' == result['properties']['lastname']['title']

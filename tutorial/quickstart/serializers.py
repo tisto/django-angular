@@ -92,6 +92,7 @@ class JsonSchemaSerializer(serializers.ModelSerializer):
             'title': self.Meta.model.__doc__,
             'type': 'object',
             'form': [],
+            'required': [],
             'properties': OrderedDict()
         }
         # Schema
@@ -107,6 +108,10 @@ class JsonSchemaSerializer(serializers.ModelSerializer):
             for m_key, m_value in mapping_dict.items():
                 result['properties'][key][m_key] = m_value
 
+        # Required
+        for key, value in self.get_fields().items():
+            if value.required:
+                result['required'].append(key)
         # Form Helper
         result['form'].append({
             'type': 'help',
