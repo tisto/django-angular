@@ -16,6 +16,7 @@
     var target = gulp.src('./index.html');
     var sources = gulp.src([
       './node_modules/angular/angular.js',
+      './node_modules/angular-animate/angular-animate.js',
       './node_modules/angular-mocks/angular-mocks.js',
       './node_modules/angular-loading-bar/build/loading-bar.js',
       './node_modules/underscore/underscore.js',
@@ -32,6 +33,8 @@
       './js/**/*.js',
       './node_modules/angular-loading-bar/build/loading-bar.css',
       './node_modules/bootstrap/dist/css/bootstrap.css',
+      './node_modules/angular-motion/dist/angular-motion.css',
+      './node_modules/bootstrap-additions/dist/bootstrap-additions.css',
       './css/**/*.css'
     ], {read: false});  // Do not read the files, we're only after their paths.
 

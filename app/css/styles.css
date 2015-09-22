@@ -5,3 +5,13 @@ body {
 .schema-form-submit {
   display: inline;
 }
+
+.btn-debug {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.aside {
+  width: 40%;
+}

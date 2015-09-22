@@ -5,10 +5,12 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="/node_modules/angular-loading-bar/build/loading-bar.css">
   <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="/node_modules/bootstrap-additions/dist/bootstrap-additions.css">
   <link rel="stylesheet" href="/css/styles.css">
   <!-- endinject -->
   <!-- inject:js -->
   <script src="/node_modules/angular/angular.js"></script>
+  <script src="/node_modules/angular-animate/angular-animate.js"></script>
   <script src="/node_modules/angular-mocks/angular-mocks.js"></script>
   <script src="/node_modules/angular-loading-bar/build/loading-bar.js"></script>
   <script src="/node_modules/underscore/underscore.js"></script>
@@ -35,11 +37,12 @@
           ng-submit="onSubmit(myForm)"
           sf-options="{ formDefaults: { ngModelOptions: { name: 'John Doe' } }}"></form>
 
-    <!-- Debug -->
-    <h3>JSON Schema</h3>
-    <pre>{{schema | json}}</pre>
-    <h3>Model</h3>
-    <pre>{{model | json}}</pre>
+    <button type="button"
+            class="btn btn-lg btn-primary btn-debug"
+            bs-aside="aside"
+            data-template="aside.tpl.html">
+      Debug
+    </button>
 
   </div>
 

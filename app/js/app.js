@@ -3,6 +3,8 @@
 
   angular.module('myApp', [
     'angular-loading-bar',
+    'mgcrea.ngStrap',
+    'ngAnimate',
     'schemaForm',
     'schemaForm-datepicker',
     'schemaForm-timepicker',
@@ -39,6 +41,10 @@
       $scope.model = {};
       $scope.schema = {};
       $scope.form = [];
+      $scope.aside = {
+        title: 'Title',
+        content: 'Hello Aside<br />This is a multiline message!'
+      };
 
       jsonSchemaService.get_schema().success(function(data, status) {
         $scope.schema = data;
@@ -118,5 +124,13 @@
 
     }
   );
+
+  angular.module('myApp').controller('AsideDemoCtrl', function($scope) {
+    'use strict';
+    $scope.aside = {
+      title: 'Title',
+      content: 'Hello Aside<br />This is a multiline message!'
+    };
+  });
 
 })();
