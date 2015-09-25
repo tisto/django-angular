@@ -8,6 +8,7 @@ class HydraRenderer(renderers.BaseRenderer):
 
     media_type = 'application/json'
     format = 'json'
+    charset = 'utf-8'
 
     def render(self, data, media_type=None, renderer_context=None):
         request = renderer_context.get('request')
@@ -75,6 +76,7 @@ class HydraRenderer(renderers.BaseRenderer):
 class JSONSchemaRenderer(renderers.JSONRenderer):
     media_type = 'application/schema+json'
     format = 'schema+json'
+    charset = 'utf-8'
 
     def render(self, data, media_type=None, renderer_context=None):
         serializer = JsonSchemaSerializer()
