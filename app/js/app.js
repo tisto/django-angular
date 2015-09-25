@@ -58,6 +58,7 @@
         var salutationIndex = $scope.schema.form.indexOf('salutation');
         $scope.schema.form[salutationIndex] = {
           'key': 'salutation',
+          'placeholder': ' '
         };
         $scope.schema['properties']['salutation'] = {
           'title': "Salutation",
