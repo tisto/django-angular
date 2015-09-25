@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from tutorial.quickstart.serializers import JsonSchemaSerializer
+from tutorial.quickstart.serializers import UserSerializer
 from tutorial.quickstart.models import Application
 
 import pytest
@@ -25,7 +26,6 @@ def test_users(django_users):
 
 
 def test_user_serializer():
-    from serializers import UserSerializer
     serializer = UserSerializer()
 
     assert ('url', 'username', 'email', 'groups') == \

@@ -19,4 +19,4 @@ def test_application_schema_json_detail_view(admin_client):
 
     assert 200 == response.status_code
     assert 'application/schema+json' in response.get('Content-Type')
-    assert 'title' in json.loads(response.content).get('properties')
+    assert 'title' in json.loads(response.content.decode()).get('properties')
