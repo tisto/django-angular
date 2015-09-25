@@ -139,13 +139,20 @@
 
         // Then we check if the form is valid
         if (form.$valid) {
-          console.log('check if form is valid');
+          console.log('form is valid');
+          $scope.schema.form[0].helpvalue = '<div class="alert alert-success">Form has been successfully submitted.</div>'
+        } else {
+          $scope.schema.form[0].helpvalue = '<div class="alert alert-danger">Please check your form.</div>'
+          console.log('form is invalid');
         }
       }
 
       $scope.clearForm = function(form) {
         $scope.model = {};
         $scope.$broadcast('schemaFormRedraw');
+        // XXX: We expect the help message to be always present as first item
+        // in the array. This is fragile.
+        $scope.schema.form[0].helpvalue = '<div class="alert alert-info">Form cleared.</div>'
       }
 
     }

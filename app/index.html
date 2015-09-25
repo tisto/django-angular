@@ -31,10 +31,12 @@
 
   <div ng-controller="FormController" style="width: 60%; margin: 50px 20%;">
 
-    <form sf-schema="schema"
+    <form name="myForm"
+          sf-schema="schema"
           sf-form="form"
           sf-model="model"
-          ng-submit="onSubmit(myForm)"></form>
+          ng-submit="onSubmit(myForm)"
+          ></form>
 
     <!-- Debug -->
     <h3>JSON Schema</h3>
