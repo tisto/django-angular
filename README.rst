@@ -44,6 +44,8 @@ Form:
 
   - Conditional fields (that show up dependent on another choice)
   - Subforms
+  - External validation
+  - Multi-form validation
   - Relational subforms (create another object within a form)
 
 Customization:
