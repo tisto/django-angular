@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from tutorial.quickstart.models import Application
 import json
 import pytest

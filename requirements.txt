@@ -12,3 +12,5 @@ pytest-django
 # Dev
 pdbpp
 fancycompleter
+flake8-coding
+flake8-print

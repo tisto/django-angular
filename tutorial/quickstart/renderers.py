@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from rest_framework import renderers
 from rest_framework.reverse import reverse
 from tutorial.quickstart.serializers import JsonSchemaSerializer

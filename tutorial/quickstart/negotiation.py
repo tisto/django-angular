@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from rest_framework.negotiation import BaseContentNegotiation
 from tutorial.quickstart.renderers import JSONSchemaRenderer
 from tutorial.quickstart.renderers import HydraRenderer
