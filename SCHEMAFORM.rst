@@ -15,3 +15,19 @@ HTML::
 JS::
 
   angular.module('myApp', ['schemaForm', 'schemaForm-datepicker', 'schemaForm-timepicker', 'schemaForm-datetimepicker']);
+
+
+Dynamic Select
+--------------
+
+NPM::
+
+  $ npm i angular-schema-form-dynamic-select
+
+HTML::
+
+  './node_modules/angular-schema-form-dynamic-select/angular-schema-form-dynamic-select.js',
+
+JS::
+
+   angular.module('myApp', ['schemaForm', 'mgcrea.ngStrap']);

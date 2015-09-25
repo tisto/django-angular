@@ -29,6 +29,7 @@
       './node_modules/angular-strap/dist/angular-strap.min.js',
       './node_modules/angular-strap/dist/angular-strap.tpl.min.js',
       './node_modules/schema-form-datetimepicker/schema-form-date-time-picker.js',
+      './node_modules/angular-schema-form-dynamic-select/angular-schema-form-dynamic-select.js',
       './js/**/*.js',
       './node_modules/angular-loading-bar/build/loading-bar.css',
       './node_modules/bootstrap/dist/css/bootstrap.css',

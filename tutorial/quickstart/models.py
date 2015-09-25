@@ -16,6 +16,18 @@ class Application(models.Model):
         blank=True
     )
 
+    salutation = models.CharField(
+        u'Salutation',
+        null=True,
+        blank=True,
+        max_length=255,
+        choices=(
+            ('mr', 'Mr'),
+            ('mrs', 'Mrs'),
+            ('ms', 'Ms'),
+        )
+    )
+
     firstname = models.CharField(
         u'First name',
         help_text=u'Your first name',

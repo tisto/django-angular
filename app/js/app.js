@@ -3,6 +3,7 @@
 
   angular.module('myApp', [
     'angular-loading-bar',
+    'mgcrea.ngStrap',
     'schemaForm',
     'schemaForm-datepicker',
     'schemaForm-timepicker',
@@ -45,6 +46,26 @@
         $scope.form = data.form;
 
         // Customize Form appearance
+        var descriptionIndex = $scope.schema.form.indexOf('description');
+        $scope.schema.form[descriptionIndex] = {
+          'key': 'description',
+          'title': 'Description',
+          'description': 'Describe your application.',
+          'type': 'textarea',
+          'placeholder': 'Description of the application.'
+        };
+
+        var salutationIndex = $scope.schema.form.indexOf('salutation');
+        $scope.schema.form[salutationIndex] = {
+          'key': 'salutation',
+        };
+        $scope.schema['properties']['salutation'] = {
+          'title': "Salutation",
+          'type': "string",
+          'enum': ["mr", "mrs", "ms"],
+          'description': "Choose a salutation"
+        };
+
         var firstnameIndex = $scope.schema.form.indexOf('firstname');
         $scope.schema.form[firstnameIndex] = {
           'type': 'section',
