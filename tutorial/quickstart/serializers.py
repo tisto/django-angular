@@ -115,7 +115,7 @@ class JsonSchemaSerializer(serializers.ModelSerializer):
         # Form Helper
         result['form'].append({
             'type': 'help',
-            'helpvalue': '<div class=\'alert alert-info\'>Example schemaform.io Form</div>'
+            'helpvalue': '<div class="alert alert-info">Example Form</div>'
         })
 
         # Form Keys

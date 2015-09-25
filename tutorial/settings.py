@@ -57,7 +57,8 @@ MIDDLEWARE_CLASSES = (
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.AllowAny',),
     'PAGE_SIZE': 10,
-    'DEFAULT_CONTENT_NEGOTIATION_CLASS': 'tutorial.quickstart.negotiation.IgnoreClientContentNegotiation',
+    'DEFAULT_CONTENT_NEGOTIATION_CLASS':
+        'tutorial.quickstart.negotiation.IgnoreClientContentNegotiation',
     'DEFAULT_RENDERER_CLASSES': (
         'tutorial.quickstart.renderers.JSONSchemaRenderer',
         'tutorial.quickstart.renderers.HydraRenderer',
