@@ -97,9 +97,7 @@ class JsonSchemaSerializer(serializers.ModelSerializer):
         }
         # Schema
         for key, value in self.get_fields().items():
-            for m_key, m_value in REST_MODEL_TO_JSON_SCHEMA_MAPPING.items():
-                if isinstance(value, m_key):
-                    mapping_dict = m_value
+            mapping_dict = REST_MODEL_TO_JSON_SCHEMA_MAPPING[type(value)]
             result['properties'][key] = {
                 'key': key,
                 'title': value.label or key,
