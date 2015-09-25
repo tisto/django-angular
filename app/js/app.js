@@ -62,7 +62,7 @@
         $scope.schema['properties']['salutation'] = {
           'title': "Salutation",
           'type': "string",
-          'enum': ["mr", "mrs", "ms"],
+          'enum': ["Mr.", "Mrs.", "Ms."],
           'description': "Choose a salutation"
         };
 

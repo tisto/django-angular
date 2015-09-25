@@ -19,6 +19,7 @@
     "angularjs": "0.0.1",
     "api-check": "^7.5.0",
     "bootstrap": "^3.3.5",
+    "bootstrap-additions": "^0.3.1",
     "browser-sync": "^2.8.2",
     "dragula": "^3.0.3",
     "gulp": "^3.9.0",

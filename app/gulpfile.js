@@ -33,6 +33,7 @@
       './js/**/*.js',
       './node_modules/angular-loading-bar/build/loading-bar.css',
       './node_modules/bootstrap/dist/css/bootstrap.css',
+      './node_modules/bootstrap-additions/dist/bootstrap-additions.css',
       './css/**/*.css'
     ], {read: false});  // Do not read the files, we're only after their paths.
 

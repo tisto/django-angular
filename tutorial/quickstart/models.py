@@ -65,6 +65,12 @@ class Application(models.Model):
         max_length=255
     )
 
+    country = models.CharField(
+        u'Country',
+        null=True,
+        max_length=255
+    )
+
     email = models.EmailField(
         u'Email address',
         help_text=u'Your email address',
