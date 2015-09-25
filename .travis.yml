@@ -15,9 +15,9 @@ before_script:
   - "sh -e /etc/init.d/xvfb start"
   - psql -c "CREATE DATABASE mydb;" -U postgres
 script:
+  - flake8 .
   - python manage.py migrate
   - py.test
-  - flake8 .
 after_script:
   - firefox --version
 
