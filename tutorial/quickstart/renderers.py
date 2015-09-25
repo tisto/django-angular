@@ -1,5 +1,6 @@
 from rest_framework import renderers
 from rest_framework.reverse import reverse
+from tutorial.quickstart.serializers import JsonSchemaSerializer
 import json
 
 
@@ -76,7 +77,6 @@ class JSONSchemaRenderer(renderers.JSONRenderer):
     format = 'schema+json'
 
     def render(self, data, media_type=None, renderer_context=None):
-        from serializers import JsonSchemaSerializer
         serializer = JsonSchemaSerializer()
         result = serializer.to_representation(data)
         return json.dumps(result)

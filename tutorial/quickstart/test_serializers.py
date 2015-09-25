@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from serializers import JsonSchemaSerializer
+from tutorial.quickstart.serializers import JsonSchemaSerializer
 from tutorial.quickstart.models import Application
 
 import pytest
