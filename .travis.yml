@@ -6,7 +6,7 @@ env:
   - DJANGO_VERSION=1.8.4
 services: postgresql
 before_install:
-  - export DJANGO_SETTINGS_MODULE=quickstart.settings
+  - export DJANGO_SETTINGS_MODULE=tutorial.quickstart.settings
   - export PYTHONPATH=$HOME/builds/tisto/django-angular
   - export PIP_USE_MIRRORS=true
 install:
