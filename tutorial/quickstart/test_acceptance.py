@@ -19,7 +19,8 @@ def test_application_json_list_view(admin_client):
 
     assert 200 == response.status_code
     assert 'application/json' in response.get('Content-Type')
-    assert u'PagedCollection' == json.loads(response.content.decode()).get('@type')
+    assert u'PagedCollection' == json.loads(
+        response.content.decode()).get('@type')
     assert 1 == len(json.loads(response.content.decode()).get('member'), )
     assert u'My first application' == \
         json.loads(response.content.decode()).get('member')[0].get('title')
