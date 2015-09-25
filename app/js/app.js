@@ -54,6 +54,16 @@
           'type': 'textarea',
           'placeholder': 'Description of the application.'
         };
+        $scope.schema.form.splice(
+          descriptionIndex,
+          0,
+          {
+            type: "template",
+            template: '<h4>Detailed <i>HTML</i> <u>description</u> for the {{form.name}} field! <a href="#" ng-click="form.click()">Link</a></h4>',
+            name: 'Description',
+            click: function() { alert('Link clicked'); }
+          }
+        );
 
         var salutationIndex = $scope.schema.form.indexOf('salutation');
         $scope.schema.form[salutationIndex] = {
