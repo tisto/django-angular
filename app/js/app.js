@@ -146,6 +146,12 @@
           'items': []
         };
 
+        var firstTimeApplicationReasonIndex = $scope.schema.form.indexOf('first_time_application_reason');
+        $scope.schema.form[firstTimeApplicationReasonIndex] = {
+          "key": "first_time_application_reason",
+          "condition": "model.first_time_application"
+        };
+
         Array.prototype.move = function (old_index, new_index) {
           if (new_index >= this.length) {
             var k = new_index - this.length;
