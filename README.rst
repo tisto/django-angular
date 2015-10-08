@@ -42,7 +42,10 @@ Validation:
 
 Form:
 
+  - Fieldsets
+    -> attachment / image
   - Conditional fields (that show up dependent on another choice)
+    -> first_time_application / first_time_application_reason
   - Subforms
   - External validation
   - Multi-form validation
