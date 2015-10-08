@@ -35,7 +35,7 @@
   );
 
   angular.module('myApp').controller('FormController',
-    function($scope, $timeout, jsonSchemaService) {
+    function($scope, $timeout, $q, jsonSchemaService) {
 
       $scope.model = {};
       $scope.schema = {};
@@ -89,6 +89,28 @@
           'type': "string",
           'enum': ["Mr.", "Mrs.", "Ms."],
           'description': "Choose a salutation"
+        };
+
+        var usernameIndex = $scope.schema.form.indexOf('username');
+        $scope.schema.form[usernameIndex] = {
+          key: 'username',
+          placeholder: 'Anything but "Bob"',
+          $asyncValidators: {
+            'async': function(username) {
+              var deferred = $q.defer();
+              $timeout(function(){
+                if (angular.isString(username) && username.toLowerCase().indexOf('bob') !== -1) {
+                  deferred.reject();
+                } else {
+                  deferred.resolve();
+                }
+              }, 500);
+              return deferred.promise;
+            }
+          },
+          validationMessage: {
+            'async': "Wooohoo thats not an OK name!"
+          }
         };
 
         var firstnameIndex = $scope.schema.form.indexOf('firstname');

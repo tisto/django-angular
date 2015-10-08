@@ -29,6 +29,13 @@ class Application(models.Model):
         )
     )
 
+    username = models.CharField(
+        u'Username',
+        help_text=u'External validation, anything but "Bob" is valid.',
+        null=True,
+        max_length=255
+    )
+
     firstname = models.CharField(
         u'First name',
         help_text=u'Your first name',
@@ -103,6 +110,20 @@ class Application(models.Model):
     time = models.TimeField(
         u'Time',
         help_text=u'Example of a Django TimeField with a time picker',
+        auto_now=True,
+        null=True
+    )
+
+    start_date = models.DateField(
+        u'Start date',
+        help_text=u'Start date needs to be before end date.',
+        auto_now=True,
+        null=True
+    )
+
+    end_date = models.DateField(
+        u'End date',
+        help_text=u'End date needs to be after start date.',
         auto_now=True,
         null=True
     )
