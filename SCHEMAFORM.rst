@@ -22,7 +22,9 @@ Dynamic Select
 
 NPM::
 
-  $ npm i angular-schema-form-dynamic-select
+  $ npm install angular-schema-form-dynamic-select
+
+  $ install angular-ui-select angular-underscore underscore angular-ui-utils angular-translate angular-ui-select angular-ui-utils angular-sanitize
 
 HTML::
 

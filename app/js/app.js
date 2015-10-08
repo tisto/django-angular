@@ -45,7 +45,21 @@
         $scope.schema = data;
         $scope.form = data.form;
 
-        // Customize Form appearance
+        // Customize form fieldsets
+        $scope.schema.form.push(
+          {
+            type: 'fieldset',
+            items: [
+              'attachment', 'image'
+            ]
+          }
+        );
+        var attachmentIndex = $scope.schema.form.indexOf('attachment');
+        var imageIndex = $scope.schema.form.indexOf('image');
+        $scope.schema.form.splice(attachmentIndex, 1);
+        $scope.schema.form.splice(imageIndex, 1);
+
+        // Customize form appearance
         var descriptionIndex = $scope.schema.form.indexOf('description');
         $scope.schema.form[descriptionIndex] = {
           'key': 'description',
@@ -131,6 +145,35 @@
           'htmlClass': 'row',
           'items': []
         };
+
+        Array.prototype.move = function (old_index, new_index) {
+          if (new_index >= this.length) {
+            var k = new_index - this.length;
+            while ((k--) + 1) {
+              this.push(undefined);
+            }
+          }
+          this.splice(new_index, 0, this.splice(old_index, 1)[0]);
+          return this; // for testing purposes
+        };
+
+        var finalizeFormSchema = function() {
+          console.log('finalizeFormSchema');
+          var form_length = $scope.schema.form.length;
+          // move submit, button, actions to the bottom of the form
+          for (var fieldIndex in $scope.schema.form) {
+            if ($scope.schema.form[fieldIndex]['type'] == 'submit') {
+              $scope.schema.form.move(fieldIndex, form_length - 1);
+            }
+          }
+          for (var fieldIndex in $scope.schema.form) {
+            if ($scope.schema.form[fieldIndex]['type'] == 'button') {
+              $scope.schema.form.move(fieldIndex, form_length - 1);
+            }
+          }
+        }
+        finalizeFormSchema();
+
       });
 
       $scope.onSubmit = function(form) {
