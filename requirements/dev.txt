@@ -1,0 +1,9 @@
+-r base.txt
+pdbpp
+pytest
+fancycompleter
+flake8
+flake8-coding
+flake8-print
+flake8-blind-except
+flake8-debugger

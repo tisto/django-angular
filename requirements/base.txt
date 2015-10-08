@@ -8,11 +8,3 @@ djangorestframework
 markdown       # Markdown support for the browsable API.
 django-filter  # Filtering support
 pytest-django
-
-# Dev
-pdbpp
-fancycompleter
-flake8-coding
-flake8-print
-flake8-blind-except
-flake8-debugger
