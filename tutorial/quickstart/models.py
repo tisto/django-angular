@@ -148,3 +148,9 @@ class Application(models.Model):
         u'First time application',
         help_text=u'Is this your first time application?',
     )
+
+    first_time_application_reason = models.CharField(
+        u'Reason for first time application',
+        null=True,
+        max_length=255
+    )
