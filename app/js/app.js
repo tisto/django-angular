@@ -208,6 +208,26 @@
         // First we broadcast an event so all fields validate themselves
         $scope.$broadcast('schemaFormValidate');
 
+        // console.log($scope.model.start_date);
+        // console.log($scope.model.end_date);
+        // console.log($scope.model.start_date > $scope.model.end_date);
+
+        // Custom Validation
+        if ($scope.model.start_date > $scope.model.end_date) {
+          console.log("start date > end date");
+          $scope.$broadcast(
+            'schemaForm.error.start_date',
+            'startDateAfterEndDate',
+            'The start date needs to be before the end date'
+          );
+          $scope.$broadcast('schemaForm.error.end_date','tv4-302',false);
+          $scope.$broadcast(
+            'schemaForm.error.end_date',
+            'endDateBeforeStartDate',
+            'The end date needs to be after the start date'
+          );
+        }
+
         // Then we check if the form is valid
         if (form.$valid) {
           console.log('form is valid');
