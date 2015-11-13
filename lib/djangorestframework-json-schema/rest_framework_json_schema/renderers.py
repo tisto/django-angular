@@ -1,11 +1,6 @@
 # -*- coding: utf-8 -*-
 from rest_framework import renderers
-from rest_framework.reverse import reverse
 from .serializers import JsonSchemaSerializer
-
-from collections import OrderedDict
-
-from rest_framework import renderers
 
 import json
 

@@ -9,5 +9,5 @@ __copyright__ = ''
 # Version synonym
 VERSION = __version__
 
-from .serializers import JsonSchemaSerializer
-from .renderers import JSONSchemaRenderer
+from .serializers import JsonSchemaSerializer  # noqa
+from .renderers import JSONSchemaRenderer  # noqa

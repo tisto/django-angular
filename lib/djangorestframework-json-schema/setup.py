@@ -1,8 +1,8 @@
-#!/usr/bin/env python
-import sys
+# -*- coding: utf-8 -*-
 import os
 import re
 from setuptools import setup, find_packages
+
 
 def get_version(package):
     """
