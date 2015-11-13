@@ -3,8 +3,6 @@ import sys
 import os
 import re
 from setuptools import setup, find_packages
-from django_rest_framework_jsonschema import get_version
-
 
 def get_version(package):
     """
@@ -29,7 +27,7 @@ def get_install_requires():
 
 setup(
     name='djangorestframework-json-schema',
-    version=get_version(),
+    version=get_version('rest_framework_json_schema'),
     license='BSD',
     author='Timo Stollenwerk',
     author_email='tisto@plone.org',
