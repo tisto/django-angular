@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 from rest_framework import renderers
 from rest_framework.reverse import reverse
+from rest_framework_json_schema import JSONSchemaRenderer
 from tutorial.quickstart.serializers import JsonSchemaSerializer
+
 import json
 
 
@@ -71,15 +73,4 @@ class HydraRenderer(renderers.BaseRenderer):
             result['nextPage'] = None
             result['previousPage'] = None
             result['lastPage'] = None
-        return json.dumps(result)
-
-
-class JSONSchemaRenderer(renderers.JSONRenderer):
-    media_type = 'application/schema+json'
-    format = 'schema+json'
-    charset = 'utf-8'
-
-    def render(self, data, media_type=None, renderer_context=None):
-        serializer = JsonSchemaSerializer()
-        result = serializer.to_representation(data)
         return json.dumps(result)
