@@ -18,7 +18,7 @@ def test_char_field_serializer():
 
     assert 'field' == result.get('properties').get('field').get('key')
     assert 'Field Title' == result.get('properties').get('field').get('title')
-    assert 'Field Help Text' == result.get('properties').get('field').get('description')
+    assert 'Field Help Text' == result.get('properties').get('field').get('description')  # noqa
     assert 'string' == result.get('properties').get('field').get('type')
     assert 'integer' == result.get('properties').get('id').get('type')
 

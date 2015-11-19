@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from rest_framework import fields
 
 # Mapping from Django REST Framework models to JSON schema
