@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-from django.contrib.auth.models import User
-from django.contrib.auth.models import Group
 from tutorial.quickstart.models import Application
 from rest_framework import serializers
 from rest_framework import fields
