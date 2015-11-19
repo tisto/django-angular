@@ -2,6 +2,97 @@
 from django.db import models
 
 
+class CharFieldModel(models.Model):
+
+    field = models.CharField(
+        u'Field Title',
+        help_text=u'Field Help Text',
+        max_length=255
+    )
+
+
+class TextFieldTest(models.Model):
+
+    test = models.TextField(
+        u'TextField Test',
+        help_text=u'TextField Help Text'
+    )
+
+
+class EmailFieldTest(models.Model):
+
+    test = models.EmailField(
+        u'Email Field',
+        help_text=u'Email Field Help Text'
+    )
+
+
+class IntegerFieldTest(models.Model):
+
+    test = models.IntegerField(
+        u'Integer Field',
+        help_text='Integer Field Help Text'
+    )
+
+
+class DateFieldTest(models.Model):
+
+    test = models.DateField(
+        u'Date Field',
+        help_text=u'Date Field Help Text',
+        auto_now=True,
+        null=True
+    )
+
+
+class DateTimeFieldTest(models.Model):
+
+    test = models.DateTimeField(
+        u'DateTime Field',
+        help_text=u'DateTime Field Help Text',
+        auto_now=True,
+        null=True
+    )
+
+
+class TimeFieldTest(models.Model):
+
+    test = models.TimeField(
+        u'Time Field',
+        help_text=u'Time Field Help Text',
+        auto_now=True,
+        null=True
+    )
+
+
+class URLFieldTest(models.Model):
+
+    test = models.URLField(
+        u'URL Field',
+        help_text=u'URL Field Help Text',
+        null=True,
+        blank=True
+    )
+
+
+class UUIDFieldTest(models.Model):
+
+    test = models.UUIDField(
+        u'UUID Field',
+        help_text=u'UUID Field Help Text',
+        null=True,
+        blank=True
+    )
+
+
+class NullBooleanField(models.Model):
+
+    test = models.NullBooleanField(
+        u'Null Boolean Field',
+        help_text=u'Null Boolean Field Help Text',
+    )
+
+
 class Application(models.Model):
 
     title = models.CharField(

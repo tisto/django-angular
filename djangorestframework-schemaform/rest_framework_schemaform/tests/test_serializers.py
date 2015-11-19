@@ -6,6 +6,23 @@ import pytest
 
 
 @pytest.mark.django_db
+def test_char_field_serializer():
+    from rest_framework_schemaform.models import CharFieldModel
+
+    model = CharFieldModel()
+    model.field = u'My CharFieldTest'
+    model.save()
+
+    serializer = JsonSchemaSerializer(model)
+    result = serializer.to_representation(model)
+
+    assert 'integer' == result.get('properties').get('id').get('type')
+    assert 'Field Title' == result.get('properties').get('id').get('title')
+    assert result.get('title').startswith('Application')
+    assert 'object' == result.get('type')
+
+
+@pytest.mark.django_db
 def test_json_schema_serializer():
     app = Application()
     app.title = u'My first application'
