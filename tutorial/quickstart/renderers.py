@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 from rest_framework import renderers
 from rest_framework.reverse import reverse
-from rest_framework_json_schema import JSONSchemaRenderer  # noqa
-from tutorial.quickstart.serializers import JsonSchemaSerializer  # noqa
 
 import json
 

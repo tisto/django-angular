@@ -61,7 +61,7 @@ REST_FRAMEWORK = {
     'DEFAULT_CONTENT_NEGOTIATION_CLASS':
         'tutorial.quickstart.negotiation.IgnoreClientContentNegotiation',
     'DEFAULT_RENDERER_CLASSES': (
-        'tutorial.quickstart.renderers.JSONSchemaRenderer',
+        'rest_framework_json_schema.renderers.JSONSchemaRenderer',
         'tutorial.quickstart.renderers.HydraRenderer',
         'rest_framework.renderers.BrowsableAPIRenderer',
         'rest_framework.renderers.JSONRenderer',

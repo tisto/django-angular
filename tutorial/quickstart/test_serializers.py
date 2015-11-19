@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.contrib.auth.models import User
-from tutorial.quickstart.serializers import JsonSchemaSerializer
+from rest_framework_json_schema.serializers import JsonSchemaSerializer
 from tutorial.quickstart.serializers import UserSerializer
 from tutorial.quickstart.models import Application
 
