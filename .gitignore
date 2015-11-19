@@ -7,4 +7,5 @@ npm-debug.log
 *.egg-info
 .coverage
 .junit.xml
+.tox
 
