@@ -16,10 +16,11 @@ def test_char_field_serializer():
     serializer = JsonSchemaSerializer(model)
     result = serializer.to_representation(model)
 
+    assert 'field' == result.get('properties').get('field').get('key')
+    assert 'Field Title' == result.get('properties').get('field').get('title')
+    assert 'Field Help Text' == result.get('properties').get('field').get('description')
+    assert 'string' == result.get('properties').get('field').get('type')
     assert 'integer' == result.get('properties').get('id').get('type')
-    assert 'Field Title' == result.get('properties').get('id').get('title')
-    assert result.get('title').startswith('Application')
-    assert 'object' == result.get('type')
 
 
 @pytest.mark.django_db
