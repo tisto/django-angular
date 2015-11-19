@@ -19,7 +19,7 @@ before_script:
 script:
   - flake8 .
   - python manage.py migrate
-  - py.test
+  - py.test --ignore=djangorestframework-schemaform
 after_script:
   - firefox --version
 
